@@ -133,7 +133,18 @@ function DownloadPage() {
             <div>
               <h2 className="text-base font-black">If Smart App Control blocks the installer</h2>
               <p className="mt-2 text-sm font-semibold leading-6 text-muted-foreground">
-                First confirm the file came from the official GitHub link on this page. Open Windows Security → App &amp; browser control → Smart App Control. Windows does not provide a reliable five-minute pause, and turning it off may require reinstalling Windows to enable it again. Only change this setting if you understand that trade-off; otherwise wait for Microsoft review or contact VidyaX support.
+                Agar "Smart App Control blocked an app that may be unsafe" popup aaye, to ghabrao mat — naya app hone ki wajah se Windows publisher verify nahi kar pata. Sirf ~5 minute ke liye Smart App Control off karke install kar lo:
+              </p>
+              <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm font-semibold text-muted-foreground">
+                <li>Popup pe “Okay” dabao.</li>
+                <li>Start menu me “Windows Security” search karke open karo.</li>
+                <li>App &amp; browser control → Smart App Control settings pe jao.</li>
+                <li>“Off” select karo (confirm karne ko kahe to Yes).</li>
+                <li>Downloads me jaake VidyaX_Setup_v2.1.0.exe dobara open karo aur install complete karo.</li>
+                <li>Install ke baad (5 min me) wapas Smart App Control “On” / “Evaluation” kar sakte ho.</li>
+              </ol>
+              <p className="mt-2 text-xs font-bold text-muted-foreground">
+                Note: file hamesha isi page ke official GitHub link se hi download karo.
               </p>
             </div>
           </div>
