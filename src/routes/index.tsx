@@ -506,11 +506,11 @@ function Index() {
                 </span>
               </>
             );
-            if (isAndroid) {
+            if (isAndroid || option.name === "Windows") {
               return (
                 <Link
                   key={option.name}
-                  to="/android"
+                  to={isAndroid ? "/android" : "/windows"}
                   className={commonClass}
                 >
                   {inner}
