@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Download, ShieldAlert } from "lucide-react";
+import { Download, } from "lucide-react";
 import { ShareCard } from "./index";
 import {
   ANDROID_UPDATED_AT,
   ANDROID_VERSION,
-  WINDOWS_DOWNLOAD_URL,
   WINDOWS_UPDATED_AT,
   WINDOWS_VERSION,
 } from "../lib/release-info";
