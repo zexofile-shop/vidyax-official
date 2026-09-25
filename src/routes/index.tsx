@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { MessageSquareText, Wallet, BadgeCheck, Zap, ShieldCheck, ArrowRight, Star } from "lucide-react";
+import { MessageSquareText, BadgeCheck, Zap, ShieldCheck, ArrowRight, Star, Wrench } from "lucide-react";
+import windowsBanner from "../assets/vidyax-windows-banner.png.asset.json";
+import { WINDOWS_DOWNLOAD_URL, WINDOWS_VERSION, WINDOWS_UPDATED_AT } from "@/lib/release-info";
 import {
   Accordion,
   AccordionContent,
@@ -263,11 +265,11 @@ function Index() {
     },
     {
       name: "Windows",
-      status: "Coming soon",
+      status: `v${WINDOWS_VERSION} · Live now · Updated ${WINDOWS_UPDATED_AT}`,
       icon: "windows",
-      href: notifyWindowsUrl,
-      active: false,
-      cta: "Notify me",
+      href: WINDOWS_DOWNLOAD_URL,
+      active: true,
+      cta: "Download",
     },
   ];
 
@@ -306,6 +308,17 @@ function Index() {
           Get APK
         </button>
       </nav>
+
+      <div className="mx-auto w-full max-w-7xl px-5 pb-2 sm:px-8">
+        <button
+          type="button"
+          onClick={scrollToDownload}
+          aria-label="VidyaX Windows version is live — go to download"
+          className="block w-full overflow-hidden rounded-2xl border shadow-card transition hover:-translate-y-0.5 hover:shadow-soft focus:outline-none focus:ring-4 focus:ring-ring/30"
+        >
+          <img src={a(windowsBanner.url)} alt="VidyaX Windows version live now — tap to install" className="h-auto w-full" />
+        </button>
+      </div>
 
       <section className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-10 pt-4 sm:px-8 lg:grid-cols-[1fr_0.95fr] lg:pb-14">
         <div>
@@ -459,7 +472,7 @@ function Index() {
             Install VidyaX and start learning with confidence.
           </h2>
           <p className="mt-4 text-sm font-semibold leading-7 opacity-80">
-            Get the latest Android APK directly. iOS and Windows versions are coming soon.
+            Android APK and Windows v2.1.0 are live now. Only the iOS version is coming soon.
           </p>
           <div className="mt-5">
             <EdusparkMark compact />
@@ -479,10 +492,10 @@ function Index() {
                   <div>
                     <h3 className="text-base font-black">
                       {option.name}
-                      {option.active ? ` · v${currentVersion}` : ""}
+                      {isAndroid ? ` · v${currentVersion}` : option.name === "Windows" ? ` · v${WINDOWS_VERSION}` : ""}
                     </h3>
                     <p className="mt-0.5 text-[11px] font-bold text-muted-foreground sm:text-xs">
-                      {option.active
+                      {isAndroid
                         ? `Latest APK · Updated ${option.updatedAt ?? ""}`
                         : option.status}
                     </p>
@@ -617,7 +630,6 @@ function Index() {
             <Link to="/faq" className="hover:text-primary">FAQ</Link>
             <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
             <Link to="/dmca" className="hover:text-primary">DMCA</Link>
-            <Link to="/reward" className="hover:text-primary">Earn Now</Link>
 
           </nav>
           <p className="mt-3 text-[11px] font-semibold text-muted-foreground">
@@ -688,7 +700,7 @@ export function ShareCard({
     "⬇️ Downloads:",
     `   • Android (v${version}): ${androidUrl}`,
     `   • iOS: Coming soon`,
-    `   • Windows: Coming soon`,
+    `   • Windows (v${WINDOWS_VERSION}): ${WINDOWS_DOWNLOAD_URL}`,
     "",
     `📦 Latest version: v${version}`,
     `🗓️ Last updated: ${updatedAt}`,
@@ -766,7 +778,6 @@ export function ShareCard({
       </button>
 
       <AdhyayXPromoCard />
-      <JunglePromoCard />
 
     </div>
   );
@@ -837,83 +848,6 @@ function AdhyayXPromoCard() {
   );
 }
 
-function JunglePromoCard() {
-  return <RewardOfferCard />;
-}
-
-// ⚠️ To change the Earn Now offer link, edit REWARD_URL below.
-// It is the single source of truth — also imported by /reward page and the bottom stripe.
-export const REWARD_URL = "https://filmm.me/5OPLcB0a";
-
-export function RewardOfferCard() {
-  return (
-    <div
-      id="reward-offer"
-      className="mt-6 w-full max-w-md overflow-hidden rounded-3xl border border-emerald-400/20 bg-gradient-to-br from-[#07120d] via-[#0a1b14] to-[#0d2419] p-6 shadow-card"
-    >
-      {/* Header */}
-      <div className="flex items-center gap-3">
-        <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 text-[#062015] shadow-md">
-          <Wallet size={20} strokeWidth={2.5} />
-        </span>
-        <div>
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-300">
-            Earn Now
-          </p>
-          <p className="text-xs font-semibold text-white/60">Verified student payout</p>
-        </div>
-      </div>
-
-      {/* Money block */}
-      <div className="mt-5 rounded-2xl border border-emerald-400/15 bg-black/30 p-5">
-        <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-emerald-300/80">
-          Signup Bonus
-        </p>
-        <p className="mt-2 text-3xl font-black leading-none tracking-tight text-white sm:text-4xl">
-          Earn real money — <span className="text-emerald-300">instantly</span>
-        </p>
-        <p className="mt-3 text-sm font-medium leading-relaxed text-white/70">
-          Create your account and receive an instant welcome payout directly to your UPI or bank.
-          No deposit. No conditions.
-        </p>
-      </div>
-
-      {/* Trust rows — icons, no emojis */}
-      <ul className="mt-5 space-y-3">
-        {[
-          { Icon: BadgeCheck, text: "Verified & used by Nitesh — Founder, Eduspark" },
-          { Icon: Zap, text: "Instant credit to UPI / bank account" },
-          { Icon: ShieldCheck, text: "100% safe · No hidden charges" },
-        ].map(({ Icon, text }) => (
-          <li key={text} className="flex items-start gap-3 text-sm font-semibold text-white/90">
-            <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-md bg-emerald-400/10 text-emerald-300">
-              <Icon size={14} strokeWidth={2.5} />
-            </span>
-            <span>{text}</span>
-          </li>
-        ))}
-      </ul>
-
-      <a
-        href={REWARD_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 px-7 py-3.5 text-sm font-black text-[#062015] shadow-lg transition hover:-translate-y-0.5 active:scale-95"
-      >
-        Earn Now
-        <ArrowRight size={16} strokeWidth={3} />
-      </a>
-
-      <div className="mt-4 flex items-center justify-center gap-1.5 text-[11px] font-bold text-white/50">
-        <Star size={12} className="fill-emerald-300 text-emerald-300" strokeWidth={0} />
-        <span>Trusted by 10,000+ students</span>
-      </div>
-    </div>
-  );
-}
-
-
-
 import faqAboutImg from "../assets/faq-about.jpg";
 import faqFreeImg from "../assets/faq-free.jpg";
 import faqVersionImg from "../assets/faq-version.jpg";
@@ -978,13 +912,13 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
     },
     {
       img: faqPlatformsImg,
-      alt: "iOS and Windows coming soon",
-      q_en: "When will iOS and Windows versions launch?",
+      alt: "Windows live, iOS coming soon",
+      q_en: "Is VidyaX available on Windows and iOS?",
       a_en:
-        "iOS and Windows builds are in active development. As soon as they release, they will go live on the same download page. Join the Telegram channel to stay updated.",
-      q_hi: "iOS aur Windows version kab aayega?",
+        "Yes — VidyaX for Windows (v2.1.0) is live now! Download the installer from the Download page and follow the PC steps. Only the iOS version is still in development and will appear on the same page once released.",
+      q_hi: "Kya VidyaX Windows aur iOS pe available hai?",
       a_hi:
-        "iOS aur Windows builds active development me hain. Release hote hi same download page pe live ho jayenge. Telegram channel join karke updates pe nazar rakho.",
+        "Haan — VidyaX Windows (v2.1.0) ab live hai! Download page se installer download karo aur PC steps follow karo. Ab sirf iOS version baaki hai, release hote hi same page pe aa jayega.",
     },
     {
       img: faqUpdateImg,
