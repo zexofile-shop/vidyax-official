@@ -316,7 +316,7 @@ function Index() {
           aria-label="VidyaX Windows version is live — go to download"
           className="block w-full overflow-hidden rounded-2xl border shadow-card transition hover:-translate-y-0.5 hover:shadow-soft focus:outline-none focus:ring-4 focus:ring-ring/30"
         >
-          <img src={a(windowsBanner.url)} alt="VidyaX Windows version live now — tap to install" className="h-auto w-full" />
+          <img src={windowsBanner.url} alt="VidyaX Windows version live now — tap to install" className="h-auto w-full" />
         </button>
       </div>
 
