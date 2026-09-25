@@ -790,6 +790,9 @@ function AdhyayXPromoCard() {
         <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-primary">
           Co-Partners
         </span>
+        <span className="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-destructive">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-destructive" /> Maintenance
+        </span>
       </div>
       <h3 className="mt-3 text-center text-xl font-black leading-tight text-foreground sm:text-2xl">
         AdhyayX
@@ -826,24 +829,22 @@ function AdhyayXPromoCard() {
         ))}
       </ul>
 
-      <a
-        href="https://AdhyayX.site"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3 text-sm font-black text-background shadow-soft transition hover:-translate-y-0.5 active:scale-95"
+      <div className="mt-5 rounded-2xl border border-dashed border-primary/30 bg-primary/5 p-4 text-center">
+        <span className="mx-auto grid h-10 w-10 place-items-center rounded-full bg-primary/10 text-primary">
+          <Wrench className="h-5 w-5 animate-pulse" strokeWidth={2.5} />
+        </span>
+        <p className="mt-2 text-sm font-black text-foreground">Under Maintenance</p>
+        <p className="mt-1 text-xs font-semibold text-muted-foreground">
+          AdhyayX is being upgraded. It will be back soon — stay tuned on our WhatsApp channel.
+        </p>
+      </div>
+      <button
+        type="button"
+        disabled
+        className="mt-4 inline-flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full bg-muted px-7 py-3 text-sm font-black text-muted-foreground"
       >
-        Open AdhyayX
-        <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-          <path
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M7 17L17 7M9 7h8v8"
-          />
-        </svg>
-      </a>
+        Temporarily unavailable
+      </button>
     </div>
   );
 }
