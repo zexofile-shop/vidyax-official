@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WindowsRouteImport } from './routes/windows'
 import { Route as TutorialsRouteImport } from './routes/tutorials'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -18,6 +19,11 @@ import { Route as DmcaRouteImport } from './routes/dmca'
 import { Route as AndroidRouteImport } from './routes/android'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WindowsRoute = WindowsRouteImport.update({
+  id: '/windows',
+  path: '/windows',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TutorialsRoute = TutorialsRouteImport.update({
   id: '/tutorials',
   path: '/tutorials',
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
+  '/windows': typeof WindowsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
+  '/windows': typeof WindowsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
+  '/windows': typeof WindowsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/sitemap.xml'
     | '/tutorials'
+    | '/windows'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/sitemap.xml'
     | '/tutorials'
+    | '/windows'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/sitemap.xml'
     | '/tutorials'
+    | '/windows'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,10 +144,18 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TutorialsRoute: typeof TutorialsRoute
+  WindowsRoute: typeof WindowsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/windows': {
+      id: '/windows'
+      path: '/windows'
+      fullPath: '/windows'
+      preLoaderRoute: typeof WindowsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tutorials': {
       id: '/tutorials'
       path: '/tutorials'
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TutorialsRoute: TutorialsRoute,
+  WindowsRoute: WindowsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -81,9 +81,9 @@ function DownloadPage() {
                 <p className="mt-4 text-sm font-black text-primary">{p.cta}</p>
               </>
             );
-            if (isAndroid) {
+            if (isAndroid || p.name === "Windows") {
               return (
-                <Link key={p.name} to="/android" className={cls}>
+                <Link key={p.name} to={isAndroid ? "/android" : "/windows"} className={cls}>
                   {inner}
                 </Link>
               );
@@ -108,7 +108,7 @@ function DownloadPage() {
             </ol>
           </div>
 
-          <div id="windows-download" className="scroll-mt-6 rounded-2xl border border-primary/25 bg-card p-5 shadow-card">
+          <Link to="/windows" id="windows-download" className="block scroll-mt-6 rounded-2xl border border-primary/25 bg-card p-5 shadow-card transition hover:border-primary">
             <div className="flex items-center gap-3">
               <span className="grid h-10 w-10 place-items-center rounded-lg bg-primary text-primary-foreground">
                 <Download className="h-5 w-5" />
@@ -118,36 +118,11 @@ function DownloadPage() {
                 <h2 className="text-lg font-black">Install on your PC</h2>
               </div>
             </div>
-            <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm font-semibold text-muted-foreground">
-              <li>Tap “Download for Windows” above and let the `.exe` file finish downloading.</li>
-              <li>Open Downloads and double-click `VidyaX_Setup_v2.1.0.exe`.</li>
-              <li>Allow the installer when Windows asks, then follow the setup steps.</li>
-              <li>Launch VidyaX from the Start menu or desktop shortcut.</li>
-            </ol>
-          </div>
-        </div>
-
-        <div className="mt-4 rounded-2xl border border-warning/40 bg-warning/10 p-5">
-          <div className="flex items-start gap-3">
-            <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-foreground" />
-            <div>
-              <h2 className="text-base font-black">If Smart App Control blocks the installer</h2>
-              <p className="mt-2 text-sm font-semibold leading-6 text-muted-foreground">
-                Agar "Smart App Control blocked an app that may be unsafe" popup aaye, to ghabrao mat — naya app hone ki wajah se Windows publisher verify nahi kar pata. Sirf ~5 minute ke liye Smart App Control off karke install kar lo:
-              </p>
-              <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm font-semibold text-muted-foreground">
-                <li>Popup pe “Okay” dabao.</li>
-                <li>Start menu me “Windows Security” search karke open karo.</li>
-                <li>App &amp; browser control → Smart App Control settings pe jao.</li>
-                <li>“Off” select karo (confirm karne ko kahe to Yes).</li>
-                <li>Downloads me jaake VidyaX_Setup_v2.1.0.exe dobara open karo aur install complete karo.</li>
-                <li>Install ke baad (5 min me) wapas Smart App Control “On” / “Evaluation” kar sakte ho.</li>
-              </ol>
-              <p className="mt-2 text-xs font-bold text-muted-foreground">
-                Note: file hamesha isi page ke official GitHub link se hi download karo.
-              </p>
-            </div>
-          </div>
+            <p className="mt-4 text-sm font-semibold text-muted-foreground">
+              Download, install steps, Smart App Control help aur VirusTotal safety report — sab Windows page pe.
+            </p>
+            <p className="mt-3 text-sm font-black text-primary">Open Windows page →</p>
+          </Link>
         </div>
 
         <ShareCard version={version} androidUrl={apkUrl} updatedAt={updatedAt} />
