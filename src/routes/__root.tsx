@@ -1,0 +1,194 @@
+import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import TelegramAlertPopup from "../components/TelegramAlertPopup";
+import WindowsLaunchStripe from "../components/WindowsLaunchStripe";
+
+
+
+import appCss from "../styles.css?url";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Back to home
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "DEJFR5l2Bgd1ltRMs0yaGFgZOlqzBfjn3u40t2TyEvk" },
+      { title: "VidyaX — Free Learning App | Vidya X by Eduspark" },
+      {
+        name: "description",
+        content:
+          "Download VidyaX for Android and Windows. Free learning access, books, test series, achievements and smart learning tools by Eduspark.",
+      },
+      {
+        name: "keywords",
+        content:
+          "VidyaX, Vidya X, vidyax Windows, VidyaX PC, VidyaX APK, VidyaX download, VidyaX v2.1.0, Eduspark, free learning app",
+      },
+      { name: "author", content: "Eduspark" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "application-name", content: "VidyaX" },
+      { name: "apple-mobile-web-app-title", content: "VidyaX" },
+      { property: "og:site_name", content: "VidyaX" },
+      { property: "og:title", content: "VidyaX — Free Learning App | Vidya X by Eduspark" },
+      {
+        property: "og:description",
+        content:
+          "VidyaX (Vidya X) — Premium learning access made simple. Institute content, book library, test series & app features in one platform.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://vidyax.site" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@VidyaX" },
+      { name: "twitter:title", content: "VidyaX — Free Learning App" },
+      { name: "twitter:description", content: "VidyaX (Vidya X) - Premium learning access, made simple" },
+      { property: "og:image", content: "https://vidyax.site/vidyax-banner.png" },
+      { name: "twitter:image", content: "https://vidyax.site/vidyax-banner.png" },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap",
+      },
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      { rel: "canonical", href: "https://vidyax.site" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
+      { rel: "icon", type: "image/png", sizes: "192x192", href: "/favicon-192.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon-192.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "VidyaX",
+          alternateName: ["Vidya X", "vidyax", "vidya x", "VidyaX App", "VidyaX Site"],
+          url: "https://vidyax.site",
+          publisher: { "@type": "Organization", name: "Eduspark" },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MobileApplication",
+          name: "VidyaX",
+          alternateName: "Vidya X",
+          operatingSystem: "ANDROID, WINDOWS",
+          applicationCategory: "EducationalApplication",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+          publisher: { "@type": "Organization", name: "Eduspark" },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is VidyaX?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "VidyaX is a free learning platform built by Eduspark. It offers free batches, a book library, test series, achievements and institute apps in one place — without any paid subscription.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is VidyaX completely free?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. VidyaX is 100% free. All learning content, batches and the library are accessible without any charge.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How do I install the VidyaX APK safely?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Download the APK from vidyax.site, then in Android Settings → Security → 'Install unknown apps', allow your browser. The app is signed by Eduspark and uses HTTPS.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Play Protect shows a warning while installing — is the app unsafe?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No, the app is safe. Google Play Protect shows this popup for any APK installed outside the Play Store. Tap 'Install anyway' (or 'More details' → 'Install anyway'). VidyaX is signed by Eduspark, served over HTTPS, and contains no malware.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is VidyaX available for Windows and iOS?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "VidyaX for Windows v2.1.0 is live and available from the official download page. The iOS version is still coming soon.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How do I update the VidyaX app?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Visit vidyax.site, download the latest APK and install it. Your old data and login remain intact.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is my data safe on VidyaX?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. VidyaX only stores essential information, never sells data to third parties, uses HTTPS, and follows Eduspark's privacy guidelines.",
+              },
+            },
+          ],
+        }),
+      },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+});
+
+function RootShell({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <TelegramAlertPopup />
+      <WindowsLaunchStripe />
+      {children}
+    </>
+  );
+}
+
+
+function RootComponent() {
+  return <Outlet />;
+}
