@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Download, ShieldAlert, ShieldCheck, LifeBuoy, PlayCircle } from "lucide-react";
-import sacPopup from "../assets/smart-app-control-popup.jpg.asset.json";
+import sacPopup from "../assets/smart-app-control-popup.jpg";
 import {
   WINDOWS_DOWNLOAD_URL,
   WINDOWS_UPDATED_AT,
@@ -8,8 +8,6 @@ import {
   WINDOWS_VIRUSTOTAL_URL,
 } from "../lib/release-info";
 
-const ASSET_BASE = "https://vidyax.lovable.app";
-const SAC_IMG = sacPopup.url.startsWith("http") ? sacPopup.url : `${ASSET_BASE}${sacPopup.url}`;
 const supportUrl =
   "https://t.me/Edusparkcontactbot?text=" +
   encodeURIComponent("Hi Eduspark Team, I need help installing VidyaX for Windows v2.1.0.");
@@ -60,7 +58,7 @@ function WindowsPage() {
           </p>
           <h1 className="mt-2 text-2xl font-black sm:text-3xl">VidyaX for Windows</h1>
           <p className="mt-2 text-xs font-semibold leading-6 opacity-90 sm:text-sm">
-            Official installer for Windows 10 / 11 (64-bit). Neeche diye steps follow karo — 2 minute me install ho jayega.
+            Official installer for Windows 10 and 11 (64-bit). Follow the steps below to install it in a few minutes.
           </p>
           <a
             href={WINDOWS_DOWNLOAD_URL}
@@ -70,9 +68,9 @@ function WindowsPage() {
           </a>
         </div>
 
-        <Card icon={ShieldCheck} title="100% safe — VirusTotal report">
+        <Card icon={ShieldCheck} title="Safety check — VirusTotal report">
           <p>
-            Humne installer ko VirusTotal pe scan kiya hai — 70+ antivirus engines se check hota hai. Aap khud report dekh kar confirm kar sakte ho ki file me koi virus / malware nahi hai.
+            We scanned the installer with VirusTotal, which checks files using more than 70 security engines. Open the report to review the results before downloading.
           </p>
           <a
             href={WINDOWS_VIRUSTOTAL_URL}
@@ -86,51 +84,51 @@ function WindowsPage() {
 
         <Card icon={Download} title="Step 1 — Download properly">
           <ol className="list-decimal space-y-1.5 pl-5">
-            <li>Upar “Download” button dabao (sirf isi official page se).</li>
-            <li>Browser download complete hone do — beech me tab band mat karna.</li>
-            <li>Agar browser “not commonly downloaded” bole to ⋯ → Keep / Keep anyway select karo.</li>
+            <li>Select the Download button above and download only from this official page.</li>
+            <li>Wait for the browser to finish the download. Do not close the tab while it is downloading.</li>
+            <li>If the browser says “not commonly downloaded,” select ⋯ → Keep or Keep anyway.</li>
           </ol>
         </Card>
 
         <Card icon={PlayCircle} title="Step 2 — Install & run">
           <ol className="list-decimal space-y-1.5 pl-5">
-            <li>Downloads folder kholo aur <b>VidyaX_Setup_v{WINDOWS_VERSION}.exe</b> pe double-click karo.</li>
-            <li>“Do you want to allow this app…” pe <b>Yes</b> dabao.</li>
-            <li>Agar “Windows protected your PC” aaye to <b>More info → Run anyway</b>.</li>
-            <li>Setup steps follow karke Install / Finish dabao.</li>
-            <li>Start menu ya desktop shortcut se VidyaX open karo aur sign in karo.</li>
+            <li>Open your Downloads folder and double-click <b>VidyaX_Setup_v{WINDOWS_VERSION}.exe</b>.</li>
+            <li>When Windows asks “Do you want to allow this app…,” select <b>Yes</b>.</li>
+            <li>If “Windows protected your PC” appears, select <b>More info → Run anyway</b>.</li>
+            <li>Follow the setup instructions, then select Install and Finish.</li>
+            <li>Open VidyaX from the Start menu or desktop shortcut and sign in.</li>
           </ol>
         </Card>
 
         <div className="rounded-2xl border border-warning/40 bg-warning/10 p-5">
           <div className="flex items-center gap-3">
             <ShieldAlert className="h-5 w-5 shrink-0 text-foreground" />
-            <h2 className="text-base font-black sm:text-lg">Agar ye popup aaye — Smart App Control</h2>
+            <h2 className="text-base font-black sm:text-lg">If this popup appears — Smart App Control</h2>
           </div>
           <img
-            src={SAC_IMG}
+            src={sacPopup}
             alt="Smart App Control blocked an app that may be unsafe popup"
             className="mt-4 w-full rounded-xl border shadow-card"
             loading="lazy"
           />
           <p className="mt-3 text-sm font-semibold leading-6 text-muted-foreground">
-            Ghabrao mat — naya app hone ki wajah se Windows publisher verify nahi kar pata. App safe hai (VirusTotal report upar dekho). Sirf ~5 minute ke liye Smart App Control off karke install kar lo:
+            This can appear when Windows does not yet recognize a new app publisher. Review the VirusTotal report above first. If you decide to continue, follow these steps:
           </p>
           <ol className="mt-2 list-decimal space-y-1.5 pl-5 text-sm font-semibold text-muted-foreground">
-            <li>Popup pe “Okay” dabao.</li>
-            <li>Start menu me “Windows Security” search karke open karo.</li>
-            <li>App &amp; browser control → Smart App Control settings pe jao.</li>
-            <li>“Off” select karo (confirm pooche to Yes).</li>
-            <li>Setup .exe dobara open karke install complete karo.</li>
-            <li>Install ke baad chaho to Smart App Control wapas “On” kar sakte ho.</li>
+            <li>Select “Okay” on the popup.</li>
+            <li>Search for and open “Windows Security” from the Start menu.</li>
+            <li>Go to App &amp; browser control → Smart App Control settings.</li>
+            <li>Read the warning carefully. Turning Smart App Control off can be permanent without resetting Windows.</li>
+            <li>If you accept that limitation, select “Off,” confirm, and run the installer again.</li>
+            <li>Complete the setup, then open VidyaX from the Start menu.</li>
           </ol>
           <p className="mt-2 text-xs font-bold text-muted-foreground">
-            Note: Kuch Windows versions me off karne ke baad dobara on karne ke liye Windows reset lagta hai.
+            Important: Microsoft may require you to reset or reinstall Windows before Smart App Control can be turned on again.
           </p>
         </div>
 
-        <Card icon={LifeBuoy} title="Koi problem aa rahi hai?">
-          <p>Download ya install me koi bhi trouble ho to hamari support team se contact karo — hum jaldi help karenge.</p>
+        <Card icon={LifeBuoy} title="Need help?">
+          <p>If you have trouble downloading or installing VidyaX, contact our support team for assistance.</p>
           <a
             href={supportUrl}
             target="_blank"
