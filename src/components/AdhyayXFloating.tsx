@@ -5,7 +5,7 @@ const WA_LOGO = waLogo.url.startsWith("http") ? waLogo.url : `${ASSET_BASE}${waL
 
 export default function AdhyayXFloating() {
   return (
-    <div className="fixed bottom-24 right-4 z-[60] sm:bottom-28 sm:right-6">
+    <div className="fixed bottom-6 right-4 z-[60] sm:bottom-8 sm:right-6">
       <a
         href="https://whatsapp.com/channel/0029VaoeKYx3mFYErON0tj0P"
         target="_blank"
