@@ -100,29 +100,29 @@ function WindowsPage() {
           </ol>
         </Card>
 
-        <div className="rounded-2xl border border-warning/40 bg-warning/10 p-5">
-          <div className="flex items-center gap-3">
-            <ShieldAlert className="h-5 w-5 shrink-0 text-foreground" />
-            <h2 className="text-base font-black sm:text-lg">If this popup appears — Smart App Control</h2>
+        <div className="rounded-xl border border-warning/40 bg-warning/10 p-4">
+          <div className="flex items-center gap-2.5">
+            <ShieldAlert className="h-4 w-4 shrink-0 text-foreground" />
+            <h2 className="text-sm font-black sm:text-base">If this popup appears — Smart App Control</h2>
           </div>
           <img
             src={sacPopup}
             alt="Smart App Control blocked an app that may be unsafe popup"
-            className="mt-4 w-full rounded-xl border shadow-card"
+            className="mt-3 w-full rounded-lg border shadow-card"
             loading="lazy"
           />
-          <p className="mt-3 text-sm font-semibold leading-6 text-muted-foreground">
+          <p className="mt-2.5 text-xs font-semibold leading-5 text-muted-foreground sm:text-[13px] sm:leading-6">
             This can appear when Windows does not yet recognize a new app publisher. Review the VirusTotal report above first. If you decide to continue, follow these steps:
           </p>
-          <ol className="mt-2 list-decimal space-y-1.5 pl-5 text-sm font-semibold text-muted-foreground">
+          <ol className="mt-2 list-decimal space-y-1 pl-5 text-xs font-semibold text-muted-foreground sm:text-[13px]">
             <li>Select “Okay” on the popup.</li>
             <li>Search for and open “Windows Security” from the Start menu.</li>
-            <li>Go to App &amp; browser control → Smart App Control settings.</li>
+            <li>Go to App & browser control → Smart App Control settings.</li>
             <li>Read the warning carefully. Turning Smart App Control off can be permanent without resetting Windows.</li>
             <li>If you accept that limitation, select “Off,” confirm, and run the installer again.</li>
             <li>Complete the setup, then open VidyaX from the Start menu.</li>
           </ol>
-          <p className="mt-2 text-xs font-bold text-muted-foreground">
+          <p className="mt-1.5 text-[11px] font-bold text-muted-foreground">
             Important: Microsoft may require you to reset or reinstall Windows before Smart App Control can be turned on again.
           </p>
         </div>
