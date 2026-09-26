@@ -31,14 +31,14 @@ export const Route = createFileRoute("/windows")({
 
 function Card({ icon: Icon, title, children }: { icon: typeof Download; title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl border bg-card p-5 shadow-card">
-      <div className="flex items-center gap-3">
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
-          <Icon className="h-5 w-5" />
+    <div className="rounded-xl border bg-card p-4 shadow-card">
+      <div className="flex items-center gap-2.5">
+        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+          <Icon className="h-4 w-4" />
         </span>
-        <h2 className="text-base font-black sm:text-lg">{title}</h2>
+        <h2 className="text-sm font-black sm:text-base">{title}</h2>
       </div>
-      <div className="mt-3 text-sm font-semibold leading-6 text-muted-foreground">{children}</div>
+      <div className="mt-2.5 text-xs font-semibold leading-5 text-muted-foreground sm:text-[13px] sm:leading-6">{children}</div>
     </div>
   );
 }
@@ -52,17 +52,17 @@ function WindowsPage() {
       </nav>
 
       <section className="mx-auto w-full max-w-3xl space-y-4 px-5 pb-16 pt-2 sm:px-8">
-        <div className="overflow-hidden rounded-2xl bg-hero-gradient p-6 text-primary-foreground sm:p-8">
+        <div className="overflow-hidden rounded-2xl bg-hero-gradient p-5 text-primary-foreground sm:p-6">
           <p className="text-[10px] font-black uppercase tracking-[0.22em] opacity-85">
             Windows · v{WINDOWS_VERSION} · Updated {WINDOWS_UPDATED_AT}
           </p>
-          <h1 className="mt-2 text-2xl font-black sm:text-3xl">VidyaX for Windows</h1>
-          <p className="mt-2 text-xs font-semibold leading-6 opacity-90 sm:text-sm">
+          <h1 className="mt-1.5 text-xl font-black sm:text-2xl">VidyaX for Windows</h1>
+          <p className="mt-1.5 text-xs font-semibold leading-5 opacity-90 sm:text-[13px] sm:leading-6">
             Official installer for Windows 10 and 11 (64-bit). Follow the steps below to install it in a few minutes.
           </p>
           <a
             href={WINDOWS_DOWNLOAD_URL}
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-card px-5 py-3 text-sm font-black text-primary shadow-lg transition hover:-translate-y-0.5"
+            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-card px-4 py-2.5 text-xs font-black text-primary shadow-lg transition hover:-translate-y-0.5 sm:text-sm"
           >
             <Download className="h-4 w-4" /> Download VidyaX_Setup_v{WINDOWS_VERSION}.exe
           </a>
