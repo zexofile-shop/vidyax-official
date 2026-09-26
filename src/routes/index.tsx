@@ -265,7 +265,7 @@ function Index() {
     },
     {
       name: "Windows",
-      status: `v${WINDOWS_VERSION} · Live now · Updated ${WINDOWS_UPDATED_AT}`,
+      status: `Latest EXE · Updated ${WINDOWS_UPDATED_AT}`,
       icon: "windows",
       href: WINDOWS_DOWNLOAD_URL,
       active: true,
