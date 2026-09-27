@@ -6,3 +6,5 @@
 - [x] Bundle the Windows banner and Smart App screenshot for reliable published access
 - [x] Add English Windows installation and Smart App Control guidance
 - [x] Verify mobile and desktop pages and diagnostics
+- [ ] Optimize home, download, and Windows pages for wide desktop screens without changing mobile layout
+- [ ] Verify desktop spacing and confirm there is no horizontal overflow or incoherent overlap
