@@ -46,13 +46,14 @@ function Card({ icon: Icon, title, children }: { icon: typeof Download; title: s
 function WindowsPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <nav className="mx-auto flex w-full max-w-3xl items-center justify-between px-5 py-4 sm:px-8">
+      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4 sm:px-8 lg:py-5">
         <Link to="/" className="text-2xl font-black text-brand-gradient">VidyaX</Link>
         <Link to="/download" className="text-sm font-extrabold text-muted-foreground hover:text-primary">Downloads</Link>
       </nav>
 
-      <section className="mx-auto w-full max-w-3xl space-y-4 px-5 pb-16 pt-2 sm:px-8">
-        <div className="overflow-hidden rounded-2xl bg-hero-gradient p-5 text-primary-foreground sm:p-6">
+      <section className="mx-auto w-full max-w-6xl space-y-4 px-5 pb-16 pt-2 sm:px-8 lg:space-y-6 lg:pb-20">
+        <div className="overflow-hidden rounded-2xl bg-hero-gradient p-5 text-primary-foreground sm:p-6 lg:flex lg:min-h-[250px] lg:items-center lg:justify-between lg:gap-12 lg:p-10">
+          <div className="max-w-2xl">
           <p className="text-[10px] font-black uppercase tracking-[0.22em] opacity-85">
             Windows · v{WINDOWS_VERSION} · Updated {WINDOWS_UPDATED_AT}
           </p>
@@ -60,14 +61,16 @@ function WindowsPage() {
           <p className="mt-1.5 text-xs font-semibold leading-5 opacity-90 sm:text-[13px] sm:leading-6">
             Official installer for Windows 10 and 11 (64-bit). Follow the steps below to install it in a few minutes.
           </p>
+          </div>
           <a
             href={WINDOWS_DOWNLOAD_URL}
-            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-card px-4 py-2.5 text-xs font-black text-primary shadow-lg transition hover:-translate-y-0.5 sm:text-sm"
+            className="mt-4 inline-flex max-w-full shrink-0 items-center gap-2 rounded-lg bg-card px-4 py-2.5 text-xs font-black text-primary shadow-lg transition hover:-translate-y-0.5 sm:text-sm lg:mt-0 lg:px-6 lg:py-3.5"
           >
             <Download className="h-4 w-4" /> Download VidyaX_Setup_v{WINDOWS_VERSION}.exe
           </a>
         </div>
 
+        <div className="grid gap-4 lg:grid-cols-3 lg:gap-6">
         <Card icon={ShieldCheck} title="Safety check — VirusTotal report">
           <p>
             We scanned the installer with VirusTotal, which checks files using more than 70 security engines. Open the report to review the results before downloading.
@@ -99,18 +102,20 @@ function WindowsPage() {
             <li>Open VidyaX from the Start menu or desktop shortcut and sign in.</li>
           </ol>
         </Card>
+        </div>
 
-        <div className="rounded-xl border border-warning/40 bg-warning/10 p-4">
+        <div className="rounded-xl border border-warning/40 bg-warning/10 p-4 lg:grid lg:grid-cols-[minmax(360px,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-8 lg:p-6">
+          <img
+            src={sacPopup}
+            alt="Smart App Control blocked an app that may be unsafe popup"
+            className="w-full rounded-lg border shadow-card lg:order-1"
+            loading="lazy"
+          />
+          <div>
           <div className="flex items-center gap-2.5">
             <ShieldAlert className="h-4 w-4 shrink-0 text-foreground" />
             <h2 className="text-sm font-black sm:text-base">If this popup appears — Smart App Control</h2>
           </div>
-          <img
-            src={sacPopup}
-            alt="Smart App Control blocked an app that may be unsafe popup"
-            className="mt-3 w-full rounded-lg border shadow-card"
-            loading="lazy"
-          />
           <p className="mt-2.5 text-xs font-semibold leading-5 text-muted-foreground sm:text-[13px] sm:leading-6">
             This can appear when Windows does not yet recognize a new app publisher. Review the VirusTotal report above first. If you decide to continue, follow these steps:
           </p>
@@ -125,6 +130,7 @@ function WindowsPage() {
           <p className="mt-1.5 text-[11px] font-bold text-muted-foreground">
             Important: Microsoft may require you to reset or reinstall Windows before Smart App Control can be turned on again.
           </p>
+          </div>
         </div>
 
         <Card icon={LifeBuoy} title="Need help?">

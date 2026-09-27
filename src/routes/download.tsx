@@ -49,7 +49,7 @@ function DownloadPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <nav className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-4 sm:px-8">
+      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4 sm:px-8 lg:py-5">
         <Link to="/" className="text-2xl font-black text-brand-gradient">
           VidyaX
         </Link>
@@ -58,7 +58,7 @@ function DownloadPage() {
         </Link>
       </nav>
 
-      <section className="mx-auto w-full max-w-5xl px-5 py-8 sm:px-8">
+      <section className="mx-auto w-full max-w-6xl px-5 py-8 sm:px-8 lg:py-12">
         <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">Download</p>
         <h1 className="mt-2 text-3xl font-black tracking-normal sm:text-4xl">
           Install VidyaX — start learning today.
@@ -67,10 +67,10 @@ function DownloadPage() {
           Official Android and Windows downloads from Eduspark. iOS is coming soon.
         </p>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+        <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:gap-5">
           {platforms.map((p) => {
             const isAndroid = p.name === "Android";
-            const cls = `rounded-2xl border bg-card p-5 shadow-card transition text-left ${
+            const cls = `rounded-2xl border bg-card p-5 shadow-card transition text-left lg:min-h-[170px] lg:p-7 ${
               p.active ? "hover:-translate-y-1 hover:border-primary" : "opacity-70"
             }`;
             const inner = (
@@ -95,8 +95,8 @@ function DownloadPage() {
           })}
         </div>
 
-        <div className="mt-8 grid gap-4 lg:grid-cols-2">
-          <div className="rounded-2xl border bg-card p-5 shadow-card">
+        <div className="mt-8 grid gap-4 lg:grid-cols-2 lg:gap-6">
+          <div className="rounded-2xl border bg-card p-5 shadow-card lg:p-7">
             <h2 className="text-lg font-black">Install on Android</h2>
             <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm font-semibold text-muted-foreground">
               <li>Tap the Android card and choose the recommended 64-bit build.</li>
@@ -107,7 +107,7 @@ function DownloadPage() {
             </ol>
           </div>
 
-          <Link to="/windows" id="windows-download" className="block scroll-mt-6 rounded-2xl border border-primary/25 bg-card p-5 shadow-card transition hover:border-primary">
+          <Link to="/windows" id="windows-download" className="block scroll-mt-6 rounded-2xl border border-primary/25 bg-card p-5 shadow-card transition hover:border-primary lg:p-7">
             <div className="flex items-center gap-3">
               <span className="grid h-10 w-10 place-items-center rounded-lg bg-primary text-primary-foreground">
                 <Download className="h-5 w-5" />

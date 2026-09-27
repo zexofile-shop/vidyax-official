@@ -278,7 +278,7 @@ function Index() {
       className="min-h-screen overflow-hidden bg-background text-foreground select-none"
       style={{ WebkitUserSelect: "none", userSelect: "none", WebkitTouchCallout: "none" }}
     >
-      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:py-5">
         <BrandLogo />
         <div className="hidden items-center gap-7 text-sm font-extrabold text-muted-foreground sm:flex">
           <button type="button" onClick={() => scrollToId("features")} className="transition hover:text-primary">
@@ -309,7 +309,7 @@ function Index() {
         </button>
       </nav>
 
-      <div className="mx-auto w-full max-w-7xl px-5 pb-2 sm:px-8">
+      <div className="mx-auto w-full max-w-7xl px-5 pb-2 sm:px-8 lg:pb-4">
         <button
           type="button"
           onClick={scrollToDownload}
@@ -320,7 +320,7 @@ function Index() {
         </button>
       </div>
 
-      <section className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-10 pt-4 sm:px-8 lg:grid-cols-[1fr_0.95fr] lg:pb-14">
+      <section className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-10 pt-4 sm:px-8 lg:min-h-[620px] lg:grid-cols-[minmax(0,1.05fr)_minmax(480px,0.95fr)] lg:gap-14 lg:pb-20 lg:pt-8">
         <div>
           <EdusparkMark highlight />
           <h1 className="mt-5 max-w-3xl text-3xl font-black leading-[1.08] tracking-normal text-foreground sm:text-4xl lg:text-5xl">
@@ -361,7 +361,7 @@ function Index() {
           </div>
         </div>
 
-        <div className="relative mx-auto h-[500px] w-full max-w-[520px] sm:h-[600px]">
+        <div className="relative mx-auto h-[500px] w-full max-w-[520px] sm:h-[600px] lg:h-[610px] lg:max-w-[560px]">
           <div className="absolute inset-x-16 top-20 h-[360px] rounded-[4rem] bg-hero-gradient opacity-25 blur-3xl" />
           {heroScreens.map((shot, index) => {
             const isActive = index === activeHeroShot;
@@ -393,18 +393,18 @@ function Index() {
         </div>
       </section>
 
-      <section id="features" className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8">
+      <section id="features" className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:py-16">
         <div className="max-w-3xl">
           <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">Features</p>
           <h2 className="mt-2 text-2xl font-black tracking-normal sm:text-3xl">
             Everything students need, designed for daily learning.
           </h2>
         </div>
-        <div className="mt-7 grid grid-cols-2 gap-2.5 sm:gap-3">
+        <div className="mt-7 grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-4 lg:gap-5">
           {features.map((feature, index) => (
             <article
               key={feature.title}
-              className="group relative overflow-hidden rounded-xl border bg-card p-2.5 shadow-card transition hover:-translate-y-1 hover:border-primary sm:p-4"
+              className="group relative overflow-hidden rounded-xl border bg-card p-2.5 shadow-card transition hover:-translate-y-1 hover:border-primary sm:p-4 lg:min-h-[190px] lg:p-5"
             >
               <div className="absolute right-2 top-1.5 text-xl font-black text-brand-soft sm:text-2xl">
                 0{index + 1}
@@ -437,11 +437,11 @@ function Index() {
               The app interface is presented with layered mobile frames for a polished product look.
             </p>
           </div>
-          <div className="mt-8 flex gap-4 overflow-x-auto pb-6 [scrollbar-width:none]">
+          <div className="mt-8 flex gap-4 overflow-x-auto pb-6 [scrollbar-width:none] lg:grid lg:grid-cols-4 lg:gap-5 lg:overflow-visible lg:pb-0">
             {screenshots.map((shot, index) => (
               <figure
                 key={shot.label}
-                className={`relative min-w-[210px] rounded-[2rem] border-[8px] border-card bg-card p-1.5 shadow-soft transition hover:-translate-y-2 sm:min-w-[245px] ${index % 2 === 0 ? "-rotate-1" : "rotate-1"}`}
+                className={`relative min-w-[210px] rounded-[2rem] border-[8px] border-card bg-card p-1.5 shadow-soft transition hover:-translate-y-2 sm:min-w-[245px] lg:min-w-0 ${index % 2 === 0 ? "-rotate-1" : "rotate-1"}`}
               >
                 <img
                   src={shot.src}
@@ -464,9 +464,9 @@ function Index() {
 
       <section
         id="download"
-        className="mx-auto grid w-full max-w-7xl gap-5 px-5 py-11 sm:px-8 lg:grid-cols-[0.85fr_1.15fr]"
+        className="mx-auto grid w-full max-w-7xl gap-5 px-5 py-11 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8 lg:py-16"
       >
-        <div className="rounded-3xl bg-hero-gradient p-5 text-primary-foreground shadow-soft sm:p-7">
+        <div className="rounded-3xl bg-hero-gradient p-5 text-primary-foreground shadow-soft sm:p-7 lg:flex lg:flex-col lg:justify-center lg:p-9">
           <p className="text-xs font-black uppercase tracking-[0.2em] opacity-80">Download</p>
           <h2 className="mt-3 text-2xl font-black tracking-normal sm:text-3xl">
             Install VidyaX and start learning with confidence.
@@ -478,18 +478,18 @@ function Index() {
             <EdusparkMark compact />
           </div>
         </div>
-        <div className="grid gap-3">
+        <div className="grid gap-3 lg:grid-cols-2">
           {downloadOptions.map((option) => {
             const isAndroid = option.name === "Android";
             const commonClass =
-              "flex items-center justify-between rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 text-left w-full";
+              "flex min-w-0 items-center justify-between gap-3 rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 text-left w-full lg:min-h-[118px] lg:p-5";
             const inner = (
               <>
-                <div className="flex items-center gap-4">
+                <div className="flex min-w-0 items-center gap-4">
                   <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-primary">
                     <PlatformIcon type={option.icon} />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <h3 className="text-base font-black">
                       {option.name}
                       {isAndroid ? ` · v${currentVersion}` : option.name === "Windows" ? ` · v${WINDOWS_VERSION}` : ""}
@@ -501,7 +501,7 @@ function Index() {
                     </p>
                   </div>
                 </div>
-                <span className="text-xs font-black text-primary">
+                <span className="shrink-0 text-xs font-black text-primary">
                   {option.active ? "Download" : option.cta || "Notify me"}
                 </span>
               </>
@@ -543,14 +543,14 @@ function Index() {
         </div>
         
         {/* Support items horizontal list (includes Feedback now) */}
-        <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-3 pt-1 sm:mx-0 sm:px-0 [scrollbar-width:none]">
+        <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-3 pt-1 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-4 lg:gap-5 lg:overflow-visible lg:pb-0 [scrollbar-width:none]">
           
           {/* New Feedback Box */}
           <a
             href="https://feedback.vidyax.site"
             target="_blank"
             rel="noreferrer"
-            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1 lg:h-[170px] lg:w-auto lg:max-w-none lg:p-5"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
               <MessageSquareText className="h-4 w-4" />
@@ -566,7 +566,7 @@ function Index() {
             href={telegramCommunityUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1 lg:h-[170px] lg:w-auto lg:max-w-none lg:p-5"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon className="h-4 w-4" />
@@ -580,7 +580,7 @@ function Index() {
           
           <a
             href={`mailto:${supportEmail}`}
-            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1 lg:h-[170px] lg:w-auto lg:max-w-none lg:p-5"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft transition group-hover:scale-105">
               <GmailIcon />
@@ -596,7 +596,7 @@ function Index() {
             href={telegramSupportUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1 lg:h-[170px] lg:w-auto lg:max-w-none lg:p-5"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon className="h-4 w-4" />
@@ -995,7 +995,7 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
   };
 
   return (
-    <section id="faq" className="mt-10 rounded-2xl border bg-card p-5 shadow-card sm:p-7">
+    <section id="faq" className="mt-10 rounded-2xl border bg-card p-5 shadow-card sm:p-7 lg:p-9">
       <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">FAQ</p>
@@ -1040,7 +1040,7 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
         </div>
       </div>
 
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion type="single" collapsible className="w-full lg:grid lg:grid-cols-2 lg:gap-x-8">
         {faqs.map((item, idx) => (
           <AccordionItem
             key={idx}
