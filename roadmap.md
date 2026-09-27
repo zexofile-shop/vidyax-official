@@ -7,4 +7,4 @@
 - [x] Add English Windows installation and Smart App Control guidance
 - [x] Verify mobile and desktop pages and diagnostics
 - [x] Optimize home, download, and Windows pages for wide desktop screens without changing mobile layout
-- [ ] Verify desktop spacing and confirm there is no horizontal overflow or incoherent overlap
+- [x] Verify desktop spacing and confirm there is no horizontal overflow or incoherent overlap
