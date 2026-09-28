@@ -2,16 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { X, PictureInPicture2 } from "lucide-react";
 
-import thumbInstall from "../assets/thumb-install.png.asset.json";
-import thumbLogin from "../assets/thumb-login.png.asset.json";
-import thumbBatches from "../assets/thumb-batches.png.asset.json";
-import thumbPw from "../assets/thumb-pw.png.asset.json";
-import thumbSearch from "../assets/thumb-search.png.asset.json";
-import thumbLectures from "../assets/thumb-lectures.png.asset.json";
-import thumbProfile from "../assets/thumb-profile.png.asset.json";
-import thumbLeaderboard from "../assets/thumb-leaderboard.png.asset.json";
-// Bundled directly so the poster is available to every user on the hosted site,
-// not only inside the Lovable preview.
+import thumbInstall from "../assets/thumb-install.png";
+import thumbLogin from "../assets/thumb-login.png";
+import thumbBatches from "../assets/thumb-batches.png";
+import thumbPw from "../assets/thumb-pw.png";
+import thumbSearch from "../assets/thumb-search.png";
+import thumbLectures from "../assets/thumb-lectures.png";
+import thumbProfile from "../assets/thumb-profile.png";
+import thumbLeaderboard from "../assets/thumb-leaderboard.png";
 import thumbPcTelegram from "../assets/thumb-pc-telegram.png";
 
 export const Route = createFileRoute("/tutorials")({
@@ -54,56 +52,56 @@ const segments: Segment[] = [
     title: "How to Install / Update VidyaX",
     desc: "Install the APK or update to the latest version safely.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780582566/Captune-20260604-160419331_vgv7i4.mp4",
-    poster: thumbInstall.url,
+    poster: thumbInstall,
     credits: defaultCredits,
   },
   {
     title: "How to Login on VidyaX",
     desc: "Step-by-step login process for new VidyaX users.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780583300/Captune-20260604-180844976_yvyyq3.mp4",
-    poster: thumbLogin.url,
+    poster: thumbLogin,
     credits: defaultCredits,
   },
   {
     title: "How to Access Batches",
     desc: "Open the batches section and explore your courses.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780584518/Captune-20260604-181030634_fijowp.mp4",
-    poster: thumbBatches.url,
+    poster: thumbBatches,
     credits: defaultCredits,
   },
   {
     title: "How to Connect PW Account",
     desc: "Link your Physics Wallah account inside VidyaX.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780585794/lv_0_20260604203244_lpxemg.mp4",
-    poster: thumbPw.url,
+    poster: thumbPw,
     credits: defaultCredits,
   },
   {
     title: "How to Search & Enroll in Batches",
     desc: "Find the right batch and enroll in a single tap.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780583402/Captune-20260604-170619735_nieqcs.mp4",
-    poster: thumbSearch.url,
+    poster: thumbSearch,
     credits: defaultCredits,
   },
   {
     title: "How to Access Lectures, Notes & DPPs",
     desc: "Play lectures and download notes & DPPs inside batches.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780583612/Captune-20260604-174620058_1_nfu0cl.mp4",
-    poster: thumbLectures.url,
+    poster: thumbLectures,
     credits: defaultCredits,
   },
   {
     title: "How to Update Your Profile",
     desc: "Edit your profile picture, name, and personal details.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780583619/lv_0_20260604175838_ckpgmn.mp4",
-    poster: thumbProfile.url,
+    poster: thumbProfile,
     credits: defaultCredits,
   },
   {
     title: "How to View Leaderboard",
     desc: "Check your rank and compete with other learners.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780583397/Captune-20260604-180559814_x051oy.mp4",
-    poster: thumbLeaderboard.url,
+    poster: thumbLeaderboard,
     credits: defaultCredits,
   },
 ];
