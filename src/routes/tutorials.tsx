@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { X, PictureInPicture2 } from "lucide-react";
 
-
 import thumbInstall from "../assets/thumb-install.png.asset.json";
 import thumbLogin from "../assets/thumb-login.png.asset.json";
 import thumbBatches from "../assets/thumb-batches.png.asset.json";
@@ -11,9 +10,9 @@ import thumbSearch from "../assets/thumb-search.png.asset.json";
 import thumbLectures from "../assets/thumb-lectures.png.asset.json";
 import thumbProfile from "../assets/thumb-profile.png.asset.json";
 import thumbLeaderboard from "../assets/thumb-leaderboard.png.asset.json";
-
-const ASSET_BASE = "https://vidyax.lovable.app";
-const a = (u: string) => (u.startsWith("http") ? u : `${ASSET_BASE}${u}`);
+// Bundled directly so the poster is available to every user on the hosted site,
+// not only inside the Lovable preview.
+import thumbPcTelegram from "../assets/thumb-pc-telegram.png";
 
 export const Route = createFileRoute("/tutorials")({
   head: () => ({
@@ -23,7 +22,7 @@ export const Route = createFileRoute("/tutorials")({
       {
         name: "description",
         content:
-          "Step-by-step video tutorials for VidyaX — install, login, batches, PW connect, lectures, profile, and leaderboard.",
+          "Step-by-step video tutorials for VidyaX — install, login, batches, PW connect, lectures, profile, leaderboard, and Windows/PC guides.",
       },
       { property: "og:title", content: "How to use VidyaX — Tutorials" },
       { property: "og:description", content: "Short, segment-wise video guides for VidyaX." },
@@ -32,61 +31,142 @@ export const Route = createFileRoute("/tutorials")({
   component: TutorialsPage,
 });
 
+type Credit = { strong: string; rest: string };
+
+type Segment = {
+  title: string;
+  desc: string;
+  videoUrl: string;
+  poster: string;
+  credits: Credit[];
+};
+
+const defaultCredits: Credit[] = [
+  { strong: "Tutorials", rest: " added by our Management Team" },
+  { strong: "Voice Over", rest: " by Sanjana Rai" },
+  { strong: "Subtitled", rest: " by Raqib Ansari" },
+];
+
 // To change a tutorial video, just edit the videoUrl below.
 // File: src/routes/tutorials.tsx
-const segments: { title: string; desc: string; videoUrl: string; poster: string }[] = [
+const segments: Segment[] = [
   {
     title: "How to Install / Update VidyaX",
     desc: "Install the APK or update to the latest version safely.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780582566/Captune-20260604-160419331_vgv7i4.mp4",
-    poster: a(thumbInstall.url),
+    poster: thumbInstall.url,
+    credits: defaultCredits,
   },
   {
     title: "How to Login on VidyaX",
     desc: "Step-by-step login process for new VidyaX users.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780583300/Captune-20260604-180844976_yvyyq3.mp4",
-    poster: a(thumbLogin.url),
+    poster: thumbLogin.url,
+    credits: defaultCredits,
   },
   {
     title: "How to Access Batches",
     desc: "Open the batches section and explore your courses.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780584518/Captune-20260604-181030634_fijowp.mp4",
-    poster: a(thumbBatches.url),
+    poster: thumbBatches.url,
+    credits: defaultCredits,
   },
   {
     title: "How to Connect PW Account",
     desc: "Link your Physics Wallah account inside VidyaX.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780585794/lv_0_20260604203244_lpxemg.mp4",
-    poster: a(thumbPw.url),
+    poster: thumbPw.url,
+    credits: defaultCredits,
   },
   {
     title: "How to Search & Enroll in Batches",
     desc: "Find the right batch and enroll in a single tap.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780583402/Captune-20260604-170619735_nieqcs.mp4",
-    poster: a(thumbSearch.url),
+    poster: thumbSearch.url,
+    credits: defaultCredits,
   },
   {
     title: "How to Access Lectures, Notes & DPPs",
     desc: "Play lectures and download notes & DPPs inside batches.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780583612/Captune-20260604-174620058_1_nfu0cl.mp4",
-    poster: a(thumbLectures.url),
+    poster: thumbLectures.url,
+    credits: defaultCredits,
   },
   {
     title: "How to Update Your Profile",
     desc: "Edit your profile picture, name, and personal details.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780583619/lv_0_20260604175838_ckpgmn.mp4",
-    poster: a(thumbProfile.url),
+    poster: thumbProfile.url,
+    credits: defaultCredits,
   },
   {
     title: "How to View Leaderboard",
     desc: "Check your rank and compete with other learners.",
     videoUrl: "https://res.cloudinary.com/ddm2vzvbf/video/upload/v1780583397/Captune-20260604-180559814_x051oy.mp4",
-    poster: a(thumbLeaderboard.url),
+    poster: thumbLeaderboard.url,
+    credits: defaultCredits,
   },
 ];
 
+const pcSegments: Segment[] = [
+  {
+    title: "How to Connect Telegram Session on VidyaX PC",
+    desc: "Log in with Telegram on the VidyaX Windows app to watch unlimited lectures in HD.",
+    videoUrl: "https://res.cloudinary.com/ce7ymwzr/video/upload/v1790525501/lv_0_20260927213834.mp4",
+    poster: thumbPcTelegram,
+    credits: [
+      { strong: "Voice Over", rest: " by Sam" },
+      { strong: "Video", rest: " by Bhavish" },
+    ],
+  },
+];
+
+function SegmentCard({
+  seg,
+  index,
+  total,
+  onOpen,
+}: {
+  seg: Segment;
+  index: number;
+  total: number;
+  onOpen: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      className="text-left overflow-hidden rounded-xl border bg-card shadow-card transition hover:-translate-y-1 hover:border-primary sm:rounded-2xl"
+    >
+      {/* 16:9 thumbnail rendered as background-image to avoid any baseline/whitespace */}
+      <div
+        className="relative aspect-video w-full overflow-hidden bg-black bg-cover bg-center"
+        style={{ backgroundImage: `url(${seg.poster})` }}
+        role="img"
+        aria-label={seg.title}
+      >
+        <div className="absolute inset-0 flex items-center justify-center bg-black/10">
+          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary/95 shadow-soft sm:h-14 sm:w-14">
+            <svg viewBox="0 0 24 24" className="h-4 w-4 text-primary-foreground sm:h-6 sm:w-6" aria-hidden="true">
+              <path fill="currentColor" d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div className="p-2.5 sm:p-4">
+        <p className="text-[9px] font-black uppercase tracking-wider text-primary sm:text-[10px]">
+          Segment {String(index).padStart(2, "0")} / {String(total).padStart(2, "0")}
+        </p>
+        <h3 className="mt-1 text-[12px] font-black leading-tight sm:text-base">{seg.title}</h3>
+        <p className="mt-1 hidden text-xs font-semibold leading-5 text-muted-foreground sm:block">{seg.desc}</p>
+      </div>
+    </button>
+  );
+}
+
 function TutorialsPage() {
-  const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const [activeSeg, setActiveSeg] = useState<Segment | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const enterPip = async () => {
@@ -109,13 +189,13 @@ function TutorialsPage() {
 
   // Lock body scroll while modal is open (prevents layout shift / odd bottom artifacts)
   useEffect(() => {
-    if (activeIdx === null) return;
+    if (!activeSeg) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = prev;
     };
-  }, [activeIdx]);
+  }, [activeSeg]);
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -130,50 +210,39 @@ function TutorialsPage() {
 
       <section className="mx-auto w-full max-w-5xl px-5 pb-12 pt-4 sm:px-8">
         <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Tutorials</p>
-        <h1 className="mt-2 text-2xl font-black tracking-normal sm:text-4xl">
-          How to use VidyaX
-        </h1>
+        <h1 className="mt-2 text-2xl font-black tracking-normal sm:text-4xl">How to use VidyaX</h1>
         <p className="mt-3 max-w-2xl text-sm font-semibold text-muted-foreground sm:text-base">
           Short video guides — tap any segment to play.
         </p>
 
         <div className="mt-7 grid grid-cols-2 gap-2.5 sm:gap-4">
           {segments.map((seg, i) => (
-            <button
-              type="button"
-              key={seg.title}
-              onClick={() => setActiveIdx(i)}
-              className="text-left overflow-hidden rounded-xl border bg-card shadow-card transition hover:-translate-y-1 hover:border-primary sm:rounded-2xl"
-            >
-              {/* 16:9 thumbnail rendered as background-image to avoid any baseline/whitespace */}
-              <div
-                className="relative aspect-video w-full overflow-hidden bg-black bg-cover bg-center"
-                style={{ backgroundImage: `url(${seg.poster})` }}
-                role="img"
-                aria-label={seg.title}
-              >
-                <div className="absolute inset-0 flex items-center justify-center bg-black/10">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary/95 shadow-soft sm:h-14 sm:w-14">
-                    <svg viewBox="0 0 24 24" className="h-4 w-4 text-primary-foreground sm:h-6 sm:w-6" aria-hidden="true">
-                      <path fill="currentColor" d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-2.5 sm:p-4">
-                <p className="text-[9px] font-black uppercase tracking-wider text-primary sm:text-[10px]">
-                  Segment {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-1 text-[12px] font-black leading-tight sm:text-base">
-                  {seg.title}
-                </h3>
-                <p className="mt-1 hidden text-xs font-semibold leading-5 text-muted-foreground sm:block">
-                  {seg.desc}
-                </p>
-              </div>
-            </button>
+            <SegmentCard key={seg.title} seg={seg} index={i + 1} total={segments.length} onOpen={() => setActiveSeg(seg)} />
           ))}
+        </div>
+
+        {/* Windows / PC tutorials */}
+        <div className="mt-12">
+          <div className="flex items-center gap-3">
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Windows / PC Tutorials</p>
+            <span className="h-px flex-1 bg-border" aria-hidden="true" />
+          </div>
+          <h2 className="mt-3 text-lg font-black tracking-normal sm:text-2xl">Guides for VidyaX on Windows</h2>
+          <p className="mt-2 max-w-2xl text-sm font-semibold text-muted-foreground">
+            Step-by-step videos for the VidyaX Windows app — connect, stream, and more.
+          </p>
+
+          <div className="mt-6 grid grid-cols-2 gap-2.5 sm:gap-4">
+            {pcSegments.map((seg, i) => (
+              <SegmentCard
+                key={seg.title}
+                seg={seg}
+                index={i + 1}
+                total={pcSegments.length}
+                onOpen={() => setActiveSeg(seg)}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 text-center">
@@ -183,11 +252,11 @@ function TutorialsPage() {
         </div>
       </section>
 
-      {activeIdx !== null && (
+      {activeSeg && (
         <div
           role="dialog"
           aria-modal="true"
-          onClick={() => setActiveIdx(null)}
+          onClick={() => setActiveSeg(null)}
           className="fixed inset-0 z-[9999] flex items-start justify-center overflow-y-auto bg-black/85 p-3 backdrop-blur sm:items-center sm:p-6"
         >
           <div
@@ -196,7 +265,7 @@ function TutorialsPage() {
           >
             <button
               type="button"
-              onClick={() => setActiveIdx(null)}
+              onClick={() => setActiveSeg(null)}
               aria-label="Close"
               className="absolute right-3 top-3 z-10 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-black shadow-lg ring-1 ring-black/10 hover:bg-white/90"
               style={{ aspectRatio: "1 / 1" }}
@@ -207,9 +276,9 @@ function TutorialsPage() {
             <div className="bg-black">
               <video
                 ref={videoRef}
-                key={segments[activeIdx].videoUrl}
-                src={segments[activeIdx].videoUrl}
-                poster={segments[activeIdx].poster}
+                key={activeSeg.videoUrl}
+                src={activeSeg.videoUrl}
+                poster={activeSeg.poster}
                 controls
                 autoPlay
                 playsInline
@@ -221,9 +290,9 @@ function TutorialsPage() {
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-wider text-primary">
-                    Segment {String(activeIdx + 1).padStart(2, "0")}
+                    {pcSegments.includes(activeSeg) ? "Windows / PC" : "Segment"}
                   </p>
-                  <h3 className="mt-1 text-base font-black sm:text-lg">{segments[activeIdx].title}</h3>
+                  <h3 className="mt-1 text-base font-black sm:text-lg">{activeSeg.title}</h3>
                 </div>
                 <button
                   type="button"
@@ -236,34 +305,21 @@ function TutorialsPage() {
                 </button>
               </div>
 
-              <p className="mt-1 text-xs font-semibold text-muted-foreground">
-                {segments[activeIdx].desc}
-              </p>
+              <p className="mt-1 text-xs font-semibold text-muted-foreground">{activeSeg.desc}</p>
 
               {/* Credits */}
               <div className="mt-4 rounded-xl border border-primary/15 bg-primary/5 p-3 sm:p-4">
-                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-primary">
-                  Credits
-                </p>
+                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-primary">Credits</p>
                 <ul className="mt-2 space-y-1.5 text-[12px] font-semibold text-foreground sm:text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    <span>
-                      <span className="font-black">Tutorials</span> added by our Management Team
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    <span>
-                      <span className="font-black">Voice Over</span> by Sanjana Rai
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    <span>
-                      <span className="font-black">Subtitled</span> by Raqib Ansari
-                    </span>
-                  </li>
+                  {activeSeg.credits.map((c) => (
+                    <li key={c.strong} className="flex items-start gap-2">
+                      <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>
+                        <span className="font-black">{c.strong}</span>
+                        {c.rest}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
