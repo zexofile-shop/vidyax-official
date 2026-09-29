@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { WINDOWS_VERSION } from "../lib/release-info";
 
 export type AndroidVariant = {
   id: "64" | "32" | "emu";
@@ -32,7 +33,7 @@ export const ANDROID_VARIANTS: AndroidVariant[] = [
     label: "Emulator (AMD build)",
     subtitle: "For AMD-chip Android devices & Android emulators",
     devices:
-      "This Android emulator build is only for AMD-chip Android devices or Android emulators such as BlueStacks, LDPlayer, NoxPlayer, MEmu, or MuMu Player on AMD PCs. For a normal PC installation, download the official Windows v2.1.0 setup from the Downloads page.",
+      `This Android emulator build is only for AMD-chip Android devices or Android emulators such as BlueStacks, LDPlayer, NoxPlayer, MEmu, or MuMu Player on AMD PCs. For a normal PC installation, download the official Windows v${WINDOWS_VERSION} setup from the Downloads page.`,
     url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.7/VidyaX_1.2.7_Emulators.apk",
   },
 ];

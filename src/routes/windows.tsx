@@ -10,18 +10,18 @@ import {
 
 const supportUrl =
   "https://t.me/Edusparkcontactbot?text=" +
-  encodeURIComponent("Hi Eduspark Team, I need help installing VidyaX for Windows v2.1.0.");
+  encodeURIComponent(`Hi Eduspark Team, I need help installing VidyaX for Windows v${WINDOWS_VERSION}.`);
 
 export const Route = createFileRoute("/windows")({
   head: () => ({
     meta: [
-      { title: "Download VidyaX for Windows v2.1.0 — Eduspark" },
+      { title: `Download VidyaX for Windows v${WINDOWS_VERSION} — Eduspark` },
       {
         name: "description",
         content:
-          "Official VidyaX Windows v2.1.0 installer with install guide, Smart App Control help and VirusTotal safety report.",
+          `Official VidyaX Windows v${WINDOWS_VERSION} installer with install guide, Smart App Control help and VirusTotal safety report.`,
       },
-      { property: "og:title", content: "VidyaX for Windows v2.1.0" },
+      { property: "og:title", content: `VidyaX for Windows v${WINDOWS_VERSION}` },
       { property: "og:description", content: "Download, install guide and VirusTotal safety report." },
     ],
     links: [{ rel: "canonical", href: "https://vidyax.site/windows" }],
