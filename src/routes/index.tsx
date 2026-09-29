@@ -472,7 +472,7 @@ function Index() {
             Install VidyaX and start learning with confidence.
           </h2>
           <p className="mt-4 text-sm font-semibold leading-7 opacity-80">
-            Android APK and Windows v2.1.0 are live now. Only the iOS version is coming soon.
+            Android APK and Windows v{WINDOWS_VERSION} are live now. Only the iOS version is coming soon.
           </p>
           <div className="mt-5">
             <EdusparkMark compact />
@@ -916,10 +916,10 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
       alt: "Windows live, iOS coming soon",
       q_en: "Is VidyaX available on Windows and iOS?",
       a_en:
-        "Yes — VidyaX for Windows (v2.1.0) is live now! Download the installer from the Download page and follow the PC steps. Only the iOS version is still in development and will appear on the same page once released.",
+        `Yes — VidyaX for Windows (v${WINDOWS_VERSION}) is live now! Download the installer from the Download page and follow the PC steps. Only the iOS version is still in development and will appear on the same page once released.`,
       q_hi: "Kya VidyaX Windows aur iOS pe available hai?",
       a_hi:
-        "Haan — VidyaX Windows (v2.1.0) ab live hai! Download page se installer download karo aur PC steps follow karo. Ab sirf iOS version baaki hai, release hote hi same page pe aa jayega.",
+        `Haan — VidyaX Windows (v${WINDOWS_VERSION}) ab live hai! Download page se installer download karo aur PC steps follow karo. Ab sirf iOS version baaki hai, release hote hi same page pe aa jayega.`,
     },
     {
       img: faqUpdateImg,

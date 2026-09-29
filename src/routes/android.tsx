@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ANDROID_VARIANTS } from "../components/AndroidDownloadDialog";
+import { WINDOWS_VERSION } from "../lib/release-info";
 
 export const Route = createFileRoute("/android")({
   head: () => ({
@@ -43,7 +44,7 @@ function AndroidPage() {
           </p>
           <h1 className="mt-2 text-2xl font-black sm:text-3xl">Choose your build</h1>
           <p className="mt-2 text-xs font-semibold leading-6 opacity-90 sm:text-sm">
-            Most users should pick <span className="font-black">64-bit</span>. If it fails to install, try 32-bit. The <span className="font-black">Emulator (AMD)</span> build is for Android emulators only. For a normal PC installation, use the official Windows v2.1.0 setup on the Downloads page.
+            Most users should pick <span className="font-black">64-bit</span>. If it fails to install, try 32-bit. The <span className="font-black">Emulator (AMD)</span> build is for Android emulators only. For a normal PC installation, use the official Windows v{WINDOWS_VERSION} setup on the Downloads page.
           </p>
         </div>
 

@@ -16,12 +16,12 @@ export const Route = createFileRoute("/download")({
       {
         name: "description",
         content:
-          "Download VidyaX for Android or Windows. Get the official Android APK and Windows v2.1.0 installer from Eduspark. iOS coming soon.",
+          `Download VidyaX for Android or Windows. Get the official Android APK and Windows v${WINDOWS_VERSION} installer from Eduspark. iOS coming soon.`,
       },
       { property: "og:title", content: "Download VidyaX for Android & Windows" },
       {
         property: "og:description",
-        content: "Get the official VidyaX Android APK and Windows v2.1.0 installer.",
+        content: `Get the official VidyaX Android APK and Windows v${WINDOWS_VERSION} installer.`,
       },
     ],
     links: [{ rel: "canonical", href: "https://vidyax.site/download" }],

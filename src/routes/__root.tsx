@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import TelegramAlertPopup from "../components/TelegramAlertPopup";
+import { WINDOWS_VERSION } from "../lib/release-info";
 
 
 
@@ -42,7 +43,7 @@ export const Route = createRootRoute({
       {
         name: "keywords",
         content:
-          "VidyaX, Vidya X, vidyax Windows, VidyaX PC, VidyaX APK, VidyaX download, VidyaX v2.1.0, Eduspark, free learning app",
+          `VidyaX, Vidya X, vidyax Windows, VidyaX PC, VidyaX APK, VidyaX download, VidyaX v${WINDOWS_VERSION}, Eduspark, free learning app`,
       },
       { name: "author", content: "Eduspark" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
@@ -148,7 +149,7 @@ export const Route = createRootRoute({
               name: "Is VidyaX available for Windows and iOS?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "VidyaX for Windows v2.1.0 is live and available from the official download page. The iOS version is still coming soon.",
+                text: `VidyaX for Windows v${WINDOWS_VERSION} is live and available from the official download page. The iOS version is still coming soon.`,
               },
             },
             {
