@@ -628,6 +628,7 @@ function Index() {
             <Link to="/tutorials" className="hover:text-primary">Tutorials</Link>
             <a href="https://feedback.vidyax.site" target="_blank" rel="noreferrer" className="hover:text-primary">Feedback</a>
             <Link to="/faq" className="hover:text-primary">FAQ</Link>
+            <Link to="/about" className="hover:text-primary">About Us</Link>
             <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
             <Link to="/dmca" className="hover:text-primary">DMCA</Link>
 
