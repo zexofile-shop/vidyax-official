@@ -19,6 +19,11 @@ export const Route = createFileRoute("/about")({
         content:
           "The story, vision and team behind VidyaX (Eduspark) — free quality education for every student.",
       },
+      // Disable pinch/page zoom on this page only (user request)
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+      },
     ],
     links: [{ rel: "canonical", href: "https://vidyax.site/about" }],
   }),
