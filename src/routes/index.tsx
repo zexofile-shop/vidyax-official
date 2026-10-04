@@ -216,9 +216,9 @@ function Index() {
   const [activeHeroShot, setActiveHeroShot] = useState(0);
 
   // Hardcoded values directly to prevent API overriding
-  const currentVersion = "1.2.7";
+  const currentVersion = ANDROID_VERSION;
   const currentDownloadUrl = defaultApkUrl;
-  const lastUpdatedDate = "01 June 2026";
+  const lastUpdatedDate = ANDROID_UPDATED_AT;
 
   useEffect(() => {
     const stop = (e: Event) => e.preventDefault();
