@@ -115,7 +115,7 @@ const notifyWindowsUrl =
     "Hi Eduspark Team,\n\nPlease notify me as soon as the VidyaX Windows version is released. I want to be among the first users to install it on my PC/Laptop.\n\nThank you!",
   );
 const supportEmail = "edusparkkoficial@gmail.com";
-const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.7/VidyaX_1.2.7_64Bit.apk";
+const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/v2.1.1(apk)/VidyaX-v2.1.1-.64bit.apk";
 
 function scrollToDownload() {
   document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
