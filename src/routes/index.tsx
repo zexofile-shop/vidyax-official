@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { MessageSquareText, BadgeCheck, Zap, ShieldCheck, ArrowRight, Star, Wrench } from "lucide-react";
 import windowsBanner from "../assets/vidyax-windows-banner.png";
-import { WINDOWS_DOWNLOAD_URL, WINDOWS_VERSION, WINDOWS_UPDATED_AT } from "@/lib/release-info";
+import { ANDROID_UPDATED_AT, ANDROID_VERSION, WINDOWS_DOWNLOAD_URL, WINDOWS_VERSION, WINDOWS_UPDATED_AT } from "@/lib/release-info";
 import {
   Accordion,
   AccordionContent,
