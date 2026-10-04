@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { FaqSection } from "./index";
+import { ANDROID_UPDATED_AT, ANDROID_VERSION } from "../lib/release-info";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
