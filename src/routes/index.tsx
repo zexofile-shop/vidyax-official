@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { MessageSquareText, BadgeCheck, Zap, ShieldCheck, ArrowRight, Star, Wrench } from "lucide-react";
 import windowsBanner from "../assets/vidyax-windows-banner.png";
-import { WINDOWS_DOWNLOAD_URL, WINDOWS_VERSION, WINDOWS_UPDATED_AT } from "@/lib/release-info";
+import { ANDROID_UPDATED_AT, ANDROID_VERSION, WINDOWS_DOWNLOAD_URL, WINDOWS_VERSION, WINDOWS_UPDATED_AT } from "@/lib/release-info";
 import {
   Accordion,
   AccordionContent,
@@ -115,7 +115,7 @@ const notifyWindowsUrl =
     "Hi Eduspark Team,\n\nPlease notify me as soon as the VidyaX Windows version is released. I want to be among the first users to install it on my PC/Laptop.\n\nThank you!",
   );
 const supportEmail = "edusparkkoficial@gmail.com";
-const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.7/VidyaX_1.2.7_64Bit.apk";
+const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/v2.1.1(apk)/VidyaX-v2.1.1-.64bit.apk";
 
 function scrollToDownload() {
   document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -216,9 +216,9 @@ function Index() {
   const [activeHeroShot, setActiveHeroShot] = useState(0);
 
   // Hardcoded values directly to prevent API overriding
-  const currentVersion = "1.2.7";
+  const currentVersion = ANDROID_VERSION;
   const currentDownloadUrl = defaultApkUrl;
-  const lastUpdatedDate = "01 June 2026";
+  const lastUpdatedDate = ANDROID_UPDATED_AT;
 
   useEffect(() => {
     const stop = (e: Event) => e.preventDefault();

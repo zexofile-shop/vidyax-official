@@ -17,7 +17,7 @@ export const ANDROID_VARIANTS: AndroidVariant[] = [
     subtitle: "Recommended for most modern phones",
     devices:
       "Works on almost all phones from 2018+ — e.g. Samsung Galaxy S/A series, OnePlus, Xiaomi/Redmi Note, Realme, Vivo, Oppo, iQOO, Google Pixel, Motorola Edge.",
-    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.7/VidyaX_1.2.7_64Bit.apk",
+    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/v2.1.1(apk)/VidyaX-v2.1.1-.64bit.apk",
     recommended: true,
   },
   {
@@ -26,7 +26,7 @@ export const ANDROID_VARIANTS: AndroidVariant[] = [
     subtitle: "For older / budget devices",
     devices:
       "Use only if 64-bit doesn’t install — e.g. older Redmi 4/5/6, Samsung J-series, Micromax, Lava, Karbonn, or any phone from before 2018 with ≤ 2 GB RAM.",
-    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.7/VidyaX_1.2.7_32Bit.apk",
+    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/v2.1.1(apk)/VidyaX-v2.1.1-.32bit.apk",
   },
   {
     id: "emu",
@@ -34,7 +34,7 @@ export const ANDROID_VARIANTS: AndroidVariant[] = [
     subtitle: "For AMD-chip Android devices & Android emulators",
     devices:
       `This Android emulator build is only for AMD-chip Android devices or Android emulators such as BlueStacks, LDPlayer, NoxPlayer, MEmu, or MuMu Player on AMD PCs. For a normal PC installation, download the official Windows v${WINDOWS_VERSION} setup from the Downloads page.`,
-    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.7/VidyaX_1.2.7_Emulators.apk",
+    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/v2.1.1(apk)/VidyaX-v2.1.1-.emulator.apk",
   },
 ];
 

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ANDROID_VARIANTS } from "../components/AndroidDownloadDialog";
-import { WINDOWS_VERSION } from "../lib/release-info";
+import { ANDROID_VERSION, WINDOWS_VERSION } from "../lib/release-info";
 
 export const Route = createFileRoute("/android")({
   head: () => ({
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/android")({
 });
 
 function AndroidPage() {
-  const version = "1.2.7";
+  const version = ANDROID_VERSION;
   return (
     <main className="min-h-screen bg-background text-foreground">
       <nav className="mx-auto flex w-full max-w-3xl items-center justify-between px-5 py-4 sm:px-8">

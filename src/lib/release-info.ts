@@ -1,5 +1,5 @@
-export const ANDROID_VERSION = "1.2.7";
-export const ANDROID_UPDATED_AT = "01 June 2026";
+export const ANDROID_VERSION = "2.1.1";
+export const ANDROID_UPDATED_AT = "04 October 2026";
 export const WINDOWS_VERSION = "2.1.1";
 export const WINDOWS_UPDATED_AT = "29 September 2026";
 export const WINDOWS_DOWNLOAD_URL =

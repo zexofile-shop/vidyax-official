@@ -29,7 +29,7 @@ export const Route = createFileRoute("/download")({
   component: DownloadPage,
 });
 
-const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.7/VidyaX_1.2.7_64Bit.apk";
+const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/v2.1.1(apk)/VidyaX-v2.1.1-.64bit.apk";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
 const notifyIosUrl =
   "https://t.me/Edusparkcontactbot?text=" +

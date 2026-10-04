@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { FaqSection } from "./index";
+import { ANDROID_UPDATED_AT, ANDROID_VERSION } from "../lib/release-info";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -24,8 +25,8 @@ export const Route = createFileRoute("/faq")({
 });
 
 function FaqPage() {
-  const version = "1.2.7";
-  const updatedAt = "01 June 2026";
+  const version = ANDROID_VERSION;
+  const updatedAt = ANDROID_UPDATED_AT;
 
   return (
     <main className="min-h-screen bg-background text-foreground">
