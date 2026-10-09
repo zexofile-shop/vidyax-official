@@ -110,8 +110,8 @@ function PrivacyPage() {
           <p>
             You can request a copy of your data, ask for corrections or request deletion of your
             account by writing to{" "}
-            <a className="font-black text-primary underline" href="mailto:edusparkkoficial@gmail.com">
-              edusparkkoficial@gmail.com
+            <a className="font-black text-primary underline" href="mailto:vidyaxsite@gmail.com">
+              vidyaxsite@gmail.com
             </a>
             . We typically respond within 7 working days.
           </p>
@@ -133,8 +133,8 @@ function PrivacyPage() {
           <h2 className="text-lg font-black">10. Contact</h2>
           <p>
             Questions or concerns? Email{" "}
-            <a className="font-black text-primary underline" href="mailto:edusparkkoficial@gmail.com">
-              edusparkkoficial@gmail.com
+            <a className="font-black text-primary underline" href="mailto:vidyaxsite@gmail.com">
+              vidyaxsite@gmail.com
             </a>{" "}
             or message us on Telegram via the support bot listed on the homepage.
           </p>

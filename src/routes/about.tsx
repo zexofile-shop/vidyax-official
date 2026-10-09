@@ -227,8 +227,8 @@ function AboutPage() {
         <p className="mt-12 rounded-xl border border-border bg-muted/40 p-4 text-[11px] font-semibold text-muted-foreground">
           Have questions, feedback, or want to collaborate? Reach out through the support contacts
           listed on the homepage — or write to{" "}
-          <a className="font-black text-primary underline" href="mailto:edusparkkoficial@gmail.com">
-            edusparkkoficial@gmail.com
+          <a className="font-black text-primary underline" href="mailto:vidyaxsite@gmail.com">
+            vidyaxsite@gmail.com
           </a>
           .
         </p>

@@ -9,3 +9,4 @@
 - [x] Optimize home, download, and Windows pages for wide desktop screens without changing mobile layout
 - [x] Verify desktop spacing and confirm there is no horizontal overflow or incoherent overlap
 - [x] Bundle all legacy tutorial thumbnails so they remain visible on the published site
+- [x] Keep only the 64-bit Android build visible and switch all contact emails to vidyaxsite@gmail.com

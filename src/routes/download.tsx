@@ -99,7 +99,7 @@ function DownloadPage() {
           <div className="rounded-2xl border bg-card p-5 shadow-card lg:p-7">
             <h2 className="text-lg font-black">Install on Android</h2>
             <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm font-semibold text-muted-foreground">
-              <li>Tap the Android card and choose the recommended 64-bit build.</li>
+              <li>Tap the Android card and download the 64-bit build.</li>
               <li>Allow “Install unknown apps” for your browser if Android asks.</li>
               <li>Open the downloaded APK and tap Install.</li>
               <li>For a Play Protect warning, tap “More details” → “Install anyway”.</li>
