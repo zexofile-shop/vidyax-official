@@ -5,16 +5,16 @@ import { ANDROID_VERSION, WINDOWS_VERSION } from "../lib/release-info";
 export const Route = createFileRoute("/android")({
   head: () => ({
     meta: [
-      { title: "Choose Android build — VidyaX" },
+      { title: "Download VidyaX for Android — 64-bit APK" },
       {
         name: "description",
         content:
-          "Pick the right VidyaX Android build — 64-bit, 32-bit, or Emulator. Direct APK downloads from Eduspark.",
+          "Download the VidyaX Android 64-bit APK — the build that works on almost every modern phone. Direct download from Eduspark.",
       },
-      { property: "og:title", content: "Choose your Android build — VidyaX" },
+      { property: "og:title", content: "Download VidyaX for Android" },
       {
         property: "og:description",
-        content: "64-bit, 32-bit and Emulator APK builds for VidyaX.",
+        content: "The VidyaX 64-bit Android APK, ready to install on almost any phone.",
       },
     ],
   }),

@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { WINDOWS_VERSION } from "../lib/release-info";
 
 export type AndroidVariant = {
   id: "64" | "32" | "emu";
@@ -53,7 +52,7 @@ export function AndroidDownloadDialog({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Choose Android build"
+      aria-label="Download VidyaX for Android"
       onClick={onClose}
       className="fixed inset-0 z-[9999] flex items-start justify-center overflow-y-auto bg-black/85 p-3 backdrop-blur sm:items-center sm:p-6"
     >

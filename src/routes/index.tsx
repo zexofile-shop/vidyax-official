@@ -936,7 +936,7 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
     },
     {
       img: faqInstallImg,
-      alt: "Choose Android APK build",
+      alt: "Download Android APK build",
       q_en: "Which Android version should I download?",
       a_en:
         "Just one — the 64-bit APK. It installs on almost every Android phone made from 2018 onwards (Samsung Galaxy S/A series, OnePlus, Xiaomi/Redmi, Realme, Vivo, Oppo, iQOO, Pixel, Motorola Edge and more). If it ever refuses to install, contact support and we’ll sort it out. Note: the Android APK is for phones only — on a PC or laptop, use the Windows v" + WINDOWS_VERSION + " setup from the Downloads page.",
