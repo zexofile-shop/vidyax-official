@@ -937,12 +937,12 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
     {
       img: faqInstallImg,
       alt: "Choose Android APK build",
-      q_en: "Which Android version should I download — 32-bit, 64-bit or Emulator?",
+      q_en: "Which Android version should I download?",
       a_en:
-        "On the Android download page you’ll see three builds. 64-bit is for almost all modern phones (2018+) — pick this by default. 32-bit is only for very old / low-RAM phones where 64-bit fails to install. The 'Emulator (AMD)' build is NOT a Windows/PC version — it’s only for AMD-chip Android devices or AMD-based emulators (BlueStacks, LDPlayer, etc. on AMD PCs). On normal ARM phones, never pick the emulator build.",
-      q_hi: "Kaunsa Android version download karu — 32-bit, 64-bit ya Emulator?",
+        "Just one — the 64-bit APK. It installs on almost every Android phone made from 2018 onwards (Samsung Galaxy S/A series, OnePlus, Xiaomi/Redmi, Realme, Vivo, Oppo, iQOO, Pixel, Motorola Edge and more). If it ever refuses to install, contact support and we’ll sort it out. Note: the Android APK is for phones only — on a PC or laptop, use the Windows v" + WINDOWS_VERSION + " setup from the Downloads page.",
+      q_hi: "Kaunsa Android version download karu?",
       a_hi:
-        "Android download page pe 3 builds milte hain. 64-bit lagbhag har modern phone (2018+) ke liye hai — default isi ko pick karo. 32-bit sirf bahot purane / kam-RAM wale phone ke liye hai jaha 64-bit install na ho. 'Emulator (AMD)' build Windows/PC version NAHI hai — ye sirf AMD-chip wale Android devices ya AMD-based emulators (BlueStacks, LDPlayer waghera AMD PC pe) ke liye hai. Normal ARM phone pe Emulator build kabhi mat chuno.",
+        "Bas ek — 64-bit APK. Ye 2018 ke baad baney lagbhag har Android phone (Samsung Galaxy S/A series, OnePlus, Xiaomi/Redmi, Realme, Vivo, Oppo, iQOO, Pixel, Motorola Edge waghera) pe install ho jaata hai. Agar install na ho to support se sampark karo — hum madad karenge. Dhyan rahe: Android APK sirf phone ke liye hai — PC ya laptop pe Downloads page wala Windows v" + WINDOWS_VERSION + " setup use karo.",
     },
     {
       img: faqAboutImg,
