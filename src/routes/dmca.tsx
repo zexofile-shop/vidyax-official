@@ -54,8 +54,8 @@ function DmcaPage() {
               is and always will be free, with no ads, no paid plans, and no resale. If anything
               referenced through VidyaX belongs to you and you would prefer it removed, we will take
               it down quickly and without argument. A polite email is enough — please write to{" "}
-              <a className="font-black text-primary underline" href="mailto:edusparkkoficial@gmail.com">
-                edusparkkoficial@gmail.com
+              <a className="font-black text-primary underline" href="mailto:vidyaxsite@gmail.com">
+                vidyaxsite@gmail.com
               </a>
               .
             </p>
@@ -107,9 +107,9 @@ function DmcaPage() {
             Send notices to:{" "}
             <a
               className="font-black text-primary underline"
-              href="mailto:edusparkkoficial@gmail.com"
+              href="mailto:vidyaxsite@gmail.com"
             >
-              edusparkkoficial@gmail.com
+              vidyaxsite@gmail.com
             </a>{" "}
             with the subject line <em>“DMCA Takedown Notice — VidyaX”</em>.
           </p>
@@ -143,8 +143,8 @@ function DmcaPage() {
           <h2 className="text-lg font-black">7. Contact</h2>
           <p>
             For any DMCA, copyright or takedown question, contact{" "}
-            <a className="font-black text-primary underline" href="mailto:edusparkkoficial@gmail.com">
-              edusparkkoficial@gmail.com
+            <a className="font-black text-primary underline" href="mailto:vidyaxsite@gmail.com">
+              vidyaxsite@gmail.com
             </a>
             .
           </p>
