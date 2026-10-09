@@ -10,31 +10,17 @@ export type AndroidVariant = {
   recommended?: boolean;
 };
 
+// 32-bit and Emulator (AMD) builds are hidden for now. To bring them back, add
+// their entries to this array again — the pages render whatever is listed here.
 export const ANDROID_VARIANTS: AndroidVariant[] = [
   {
     id: "64",
     label: "64-bit",
-    subtitle: "Recommended for most modern phones",
+    subtitle: "For almost all modern phones",
     devices:
-      "Works on almost all phones from 2018+ — e.g. Samsung Galaxy S/A series, OnePlus, Xiaomi/Redmi Note, Realme, Vivo, Oppo, iQOO, Google Pixel, Motorola Edge.",
+      "Works on nearly every phone from 2018+ — e.g. Samsung Galaxy S/A series, OnePlus, Xiaomi/Redmi Note, Realme, Vivo, Oppo, iQOO, Google Pixel and Motorola Edge.",
     url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/v2.1.1(apk)/VidyaX-v2.1.1-.64bit.apk",
     recommended: true,
-  },
-  {
-    id: "32",
-    label: "32-bit",
-    subtitle: "For older / budget devices",
-    devices:
-      "Use only if 64-bit doesn’t install — e.g. older Redmi 4/5/6, Samsung J-series, Micromax, Lava, Karbonn, or any phone from before 2018 with ≤ 2 GB RAM.",
-    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/v2.1.1(apk)/VidyaX-v2.1.1-.32bit.apk",
-  },
-  {
-    id: "emu",
-    label: "Emulator (AMD build)",
-    subtitle: "For AMD-chip Android devices & Android emulators",
-    devices:
-      `This Android emulator build is only for AMD-chip Android devices or Android emulators such as BlueStacks, LDPlayer, NoxPlayer, MEmu, or MuMu Player on AMD PCs. For a normal PC installation, download the official Windows v${WINDOWS_VERSION} setup from the Downloads page.`,
-    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/v2.1.1(apk)/VidyaX-v2.1.1-.emulator.apk",
   },
 ];
 
@@ -89,9 +75,9 @@ export function AndroidDownloadDialog({
           <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-85">
             Android · v{version}
           </p>
-          <h3 className="mt-1 text-xl font-black sm:text-2xl">Choose your build</h3>
+          <h3 className="mt-1 text-xl font-black sm:text-2xl">Download for Android</h3>
           <p className="mt-1 text-xs font-semibold leading-5 opacity-85 sm:text-sm">
-            Most users should pick <span className="font-black">64-bit</span>. If it fails to install, try 32-bit. For PC/Mac use the Emulator build.
+            One build does it all — <span className="font-black">64-bit</span> installs on almost every Android phone today. For a PC, use the Windows setup instead.
           </p>
         </div>
 
@@ -128,7 +114,7 @@ export function AndroidDownloadDialog({
           ))}
 
           <p className="pt-1 text-center text-[10px] font-bold text-muted-foreground">
-            Not sure? Pick <span className="text-primary">64-bit</span> — it works on 95% of phones.
+            Trouble installing? Write to <span className="text-primary">support</span> — we’ll help you through it.
           </p>
         </div>
       </div>

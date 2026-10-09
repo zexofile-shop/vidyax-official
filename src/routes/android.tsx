@@ -42,9 +42,9 @@ function AndroidPage() {
           <p className="text-[10px] font-black uppercase tracking-[0.22em] opacity-85">
             Android · v{version}
           </p>
-          <h1 className="mt-2 text-2xl font-black sm:text-3xl">Choose your build</h1>
+          <h1 className="mt-2 text-2xl font-black sm:text-3xl">Download for Android</h1>
           <p className="mt-2 text-xs font-semibold leading-6 opacity-90 sm:text-sm">
-            Most users should pick <span className="font-black">64-bit</span>. If it fails to install, try 32-bit. The <span className="font-black">Emulator (AMD)</span> build is for Android emulators only. For a normal PC installation, use the official Windows v{WINDOWS_VERSION} setup on the Downloads page.
+            One build covers almost every phone — the <span className="font-black">64-bit</span> APK installs on nearly all Android devices from 2018 onwards. For a normal PC installation, use the official Windows v{WINDOWS_VERSION} setup on the Downloads page.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ function AndroidPage() {
         </div>
 
         <p className="mt-6 text-center text-[11px] font-bold text-muted-foreground">
-          Not sure? Pick <span className="text-primary">64-bit</span> — it works on 95% of phones.
+          Trouble installing? Write to <span className="text-primary">support</span> — we’ll help you through it.
         </p>
 
         <div className="mt-8 text-center">
