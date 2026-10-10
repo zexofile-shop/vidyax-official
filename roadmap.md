@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Replace the home banner with reference-style Promotions, supplied artwork, editable image URLs, and two contact options
+- [x] Replace the home banner with reference-style Promotions, supplied artwork, editable image URLs, and two contact options
 
 - [x] Remove Earn section, popup, footer link, and reward page
 - [x] Mark AdhyayX under maintenance everywhere
