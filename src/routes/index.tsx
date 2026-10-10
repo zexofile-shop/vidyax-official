@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { MessageSquareText, BadgeCheck, Zap, ShieldCheck, ArrowRight, Star, Wrench } from "lucide-react";
-import androidBanner from "../assets/vidyax-android-relaunch.jpg";
+import PromotionsSection from "@/components/PromotionsSection";
 import { Button } from "@/components/ui/button";
 import { ANDROID_UPDATED_AT, ANDROID_VERSION, WINDOWS_DOWNLOAD_URL, WINDOWS_VERSION, WINDOWS_UPDATED_AT } from "@/lib/release-info";
 import {
@@ -310,17 +310,7 @@ function Index() {
         </button>
       </nav>
 
-      <div className="mx-auto w-full max-w-7xl px-5 pb-2 sm:px-8 lg:pb-4">
-        <Button
-          type="button"
-          variant="ghost"
-          onClick={scrollToDownload}
-          aria-label={`VidyaX Android v${ANDROID_VERSION} relaunch — go to download`}
-          className="block h-auto w-full overflow-hidden rounded-2xl border p-0 shadow-card transition hover:-translate-y-0.5 hover:shadow-soft focus:outline-none focus:ring-4 focus:ring-ring/30"
-        >
-          <img src={androidBanner} alt={`VidyaX Android app relaunch v${ANDROID_VERSION} — download now`} width={1920} height={639} className="h-auto w-full" fetchPriority="high" />
-        </Button>
-      </div>
+      <PromotionsSection />
 
       <section className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-10 pt-4 sm:px-8 lg:min-h-[620px] lg:grid-cols-[minmax(0,1.05fr)_minmax(480px,0.95fr)] lg:gap-14 lg:pb-20 lg:pt-8">
         <div>
