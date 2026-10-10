@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Add smooth swipeable banner slides and synchronized dots, editable banner links, direct Telegram Contact, and a single-line enquiry
+- [x] Add smooth swipeable banner slides and synchronized dots, editable banner links, direct Telegram Contact, and a single-line enquiry
 
 - [x] Compact promotion spacing and contact options, add the second supplied banner, and enable automatic slides
 
