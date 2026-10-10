@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Add smooth swipeable banner slides and synchronized dots, editable banner links, direct Telegram Contact, and a single-line enquiry
+
 - [x] Compact promotion spacing and contact options, add the second supplied banner, and enable automatic slides
 
 - [x] Replace the home banner with reference-style Promotions, supplied artwork, editable image URLs, and two contact options
