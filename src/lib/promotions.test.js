@@ -1,14 +1,12 @@
 import { expect, test } from "bun:test";
-import { promotionContacts } from "./promotions";
+import { promotionContactUrl, promotions } from "./promotions";
 
-test("instant promotion contact uses Nitesh's Telegram with a two-hour response time", () => {
-  const contact = promotionContacts.find((entry) => entry.channel === "Telegram");
-  expect(contact?.href).toBe("https://t.me/Me_nitesh");
-  expect(contact?.responseTime).toBe("Within 2 hours");
+test("promotion contact goes directly to Nitesh's Telegram", () => {
+  expect(promotionContactUrl).toBe("https://t.me/Me_nitesh");
 });
 
-test("email promotion contact uses the site email with a 24-hour response time", () => {
-  const contact = promotionContacts.find((entry) => entry.channel === "Email");
-  expect(contact?.href).toBe("mailto:vidyaxsite@gmail.com");
-  expect(contact?.responseTime).toBe("Within 24 hours");
+test("both supplied banners use the requested Telegram destination", () => {
+  expect(promotions).toHaveLength(2);
+  expect(promotions[0].href).toBe("https://t.me/+Mi3AU81_kZowNjI1");
+  expect(promotions[1].href).toBe("https://t.me/+Mi3AU81_kZowNjI1");
 });
