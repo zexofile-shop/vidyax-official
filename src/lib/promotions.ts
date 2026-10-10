@@ -1,4 +1,5 @@
 import studentsBanner from "../assets/promotion-top-students.jpg";
+import updatesBanner from "../assets/promotion-regular-updates.jpg";
 
 // Replace `image` with any public HTTPS JPG/PNG URL to change a banner.
 // Add another entry to show another banner with its own navigation dot.
@@ -7,6 +8,11 @@ export const promotions = [
     id: "top-students",
     image: studentsBanner,
     alt: "EduSpark × VidyaX special announcement: top 3 eligible students receive a trophy and certificate",
+  },
+  {
+    id: "regular-updates",
+    image: updatesBanner,
+    alt: "VidyaX regular app updates announcement: developers and support active, with improvements planned for October and November",
   },
 ];
 
