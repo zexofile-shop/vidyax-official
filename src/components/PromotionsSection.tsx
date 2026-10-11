@@ -58,7 +58,7 @@ export default function PromotionsSection() {
   return (
     <section
       aria-labelledby="promotions-heading"
-      className="mx-auto w-full max-w-6xl px-5 pb-3 pt-2 sm:px-8"
+      className="mx-auto w-full max-w-6xl px-3 pb-3 pt-2 sm:px-8"
     >
       <h2
         id="promotions-heading"
@@ -142,9 +142,9 @@ export default function PromotionsSection() {
 
       {/* Contact card – always ONE row (icon | text | button), mobile + desktop */}
        <div className="mt-1 flex items-center gap-1.5 rounded-2xl border bg-card px-2 py-2 shadow-sm sm:gap-3 sm:px-4 sm:py-3">
-         <MegaphoneIcon className="hidden sm:inline-flex" />
+         <span className="hidden shrink-0 sm:block"><MegaphoneIcon /></span>
 
-         <p className="min-w-0 flex-1 whitespace-nowrap text-[10px] font-bold leading-snug text-foreground min-[375px]:text-[11px] sm:text-sm lg:text-base">
+         <p className="min-w-0 flex-1 whitespace-nowrap text-[9px] font-bold leading-snug text-foreground min-[375px]:text-[10px] min-[390px]:text-[11px] sm:text-sm lg:text-base">
           Want to promote your content or application?
         </p>
 
