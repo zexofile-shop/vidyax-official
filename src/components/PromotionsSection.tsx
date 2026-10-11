@@ -170,6 +170,31 @@ export default function PromotionsSection() {
           </a>
         </Button>
       </div>
+
+      {/* Feedback form dialog – opens the banner's form URL in an iframe */}
+      <Dialog open={activeForm !== null} onOpenChange={(open) => !open && setActiveForm(null)}>
+        <DialogContent className="flex max-h-[85dvh] w-[calc(100vw-2rem)] max-w-2xl flex-col gap-0 overflow-hidden rounded-2xl p-0 sm:w-full">
+          <DialogTitle className="sr-only">
+            {activeForm ? activeForm.alt : "Feedback form"}
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            Fill the form below and submit your response.
+          </DialogDescription>
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-background p-2 sm:p-3">
+            {activeForm && (
+              <iframe
+                src={activeForm.formUrl ?? ""}
+                title={activeForm.alt}
+                className="mx-auto block h-[2200px] w-full max-w-[640px] border-0"
+                loading="lazy"
+                allow="fullscreen"
+              >
+                Loading…
+              </iframe>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
