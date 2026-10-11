@@ -2,7 +2,17 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { promotionContactUrl, promotions } from "@/lib/promotions";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  promotionContactUrl,
+  promotions,
+  type Promotion,
+} from "@/lib/promotions";
 
 /* Megaphone icon with the little "sound lines" – reused in heading and contact card */
 function MegaphoneIcon({ className = "" }: { className?: string }) {
@@ -28,6 +38,7 @@ export default function PromotionsSection() {
   const [viewportRef, carousel] = useEmblaCarousel({ loop: true, duration: 35 });
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [activeForm, setActiveForm] = useState<Promotion | null>(null);
 
   const syncSlide = useCallback(() => {
     if (carousel) setActiveIndex(carousel.selectedScrollSnap());
@@ -91,11 +102,16 @@ export default function PromotionsSection() {
             {promotions.map((promotion, index) => (
               <a
                 key={promotion.id}
-                href={promotion.href}
-                target="_blank"
+                href={promotion.href ?? promotion.formUrl ?? "#"}
+                target={promotion.href ? "_blank" : undefined}
                 rel="noopener noreferrer"
                 aria-label={promotion.alt}
                 tabIndex={index === activeIndex ? 0 : -1}
+                onClick={(event) => {
+                  if (!promotion.formUrl) return;
+                  event.preventDefault();
+                  setActiveForm(promotion);
+                }}
                 className="block min-w-0 flex-[0_0_100%]"
               >
                 <img
@@ -154,6 +170,31 @@ export default function PromotionsSection() {
           </a>
         </Button>
       </div>
+
+      {/* Feedback form dialog – opens the banner's form URL in an iframe */}
+      <Dialog open={activeForm !== null} onOpenChange={(open) => !open && setActiveForm(null)}>
+        <DialogContent className="flex max-h-[85dvh] w-[calc(100vw-2rem)] max-w-2xl flex-col gap-0 overflow-hidden rounded-2xl p-0 sm:w-full">
+          <DialogTitle className="sr-only">
+            {activeForm ? activeForm.alt : "Feedback form"}
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            Fill the form below and submit your response.
+          </DialogDescription>
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-background p-2 sm:p-3">
+            {activeForm && (
+              <iframe
+                src={activeForm.formUrl ?? ""}
+                title={activeForm.alt}
+                className="mx-auto block h-[2200px] w-full max-w-[640px] border-0"
+                loading="lazy"
+                allow="fullscreen"
+              >
+                Loading…
+              </iframe>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
