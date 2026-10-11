@@ -1,10 +1,29 @@
+import feedbackBanner from "../assets/promotion-feedback.jpg";
 import studentsBanner from "../assets/promotion-top-students.jpg";
 import updatesBanner from "../assets/promotion-regular-updates.jpg";
 
+export interface Promotion {
+  id: string;
+  image: string;
+  alt: string;
+  /** Where the banner click navigates (opens in a new tab). */
+  href?: string;
+  /** When set, clicking opens this form URL inside an in-page dialog instead of navigating. */
+  formUrl?: string;
+}
+
 // Replace `image` with any public HTTPS JPG/PNG URL to change a banner.
-// Replace each banner's `href` independently to change its click destination.
+// Give a banner `href` to send clicks to a link, or `formUrl` to open an
+// embedded form (e.g. Google Form) in a dialog on click.
 // Add another entry to show another banner with its own navigation dot.
-export const promotions = [
+export const promotions: Promotion[] = [
+  {
+    id: "feedback",
+    image: feedbackBanner,
+    formUrl:
+      "https://docs.google.com/forms/d/e/1FAIpQLSdlnTg3i-XS3Ho3ixbA2XFO7j_Iyrd5zwbqi7Bt1mJGjN7PGg/viewform?embedded=true",
+    alt: "Help us make VidyaX better! Your feedback matters — click this poster to give feedback",
+  },
   {
     id: "top-students",
     image: studentsBanner,
