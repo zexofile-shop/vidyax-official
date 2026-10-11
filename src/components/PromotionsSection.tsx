@@ -102,11 +102,16 @@ export default function PromotionsSection() {
             {promotions.map((promotion, index) => (
               <a
                 key={promotion.id}
-                href={promotion.href}
-                target="_blank"
+                href={promotion.href ?? promotion.formUrl ?? "#"}
+                target={promotion.href ? "_blank" : undefined}
                 rel="noopener noreferrer"
                 aria-label={promotion.alt}
                 tabIndex={index === activeIndex ? 0 : -1}
+                onClick={(event) => {
+                  if (!promotion.formUrl) return;
+                  event.preventDefault();
+                  setActiveForm(promotion);
+                }}
                 className="block min-w-0 flex-[0_0_100%]"
               >
                 <img
