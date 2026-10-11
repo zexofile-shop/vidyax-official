@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Redirect feedback banner to the supplied Google Form without an iframe; compact animated dots and bold single-line enquiry with a smaller shining Contact button
+- [x] Redirect feedback banner to the supplied Google Form without an iframe; compact animated dots and bold single-line enquiry with a smaller shining Contact button
 
 - [x] Add smooth swipeable banner slides and synchronized dots, editable banner links, direct Telegram Contact, and a single-line enquiry
 
