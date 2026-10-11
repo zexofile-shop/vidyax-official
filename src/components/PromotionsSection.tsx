@@ -2,7 +2,17 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { promotionContactUrl, promotions } from "@/lib/promotions";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  promotionContactUrl,
+  promotions,
+  type Promotion,
+} from "@/lib/promotions";
 
 /* Megaphone icon with the little "sound lines" – reused in heading and contact card */
 function MegaphoneIcon({ className = "" }: { className?: string }) {
