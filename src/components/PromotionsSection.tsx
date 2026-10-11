@@ -38,6 +38,7 @@ export default function PromotionsSection() {
   const [viewportRef, carousel] = useEmblaCarousel({ loop: true, duration: 35 });
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [activeForm, setActiveForm] = useState<Promotion | null>(null);
 
   const syncSlide = useCallback(() => {
     if (carousel) setActiveIndex(carousel.selectedScrollSnap());
