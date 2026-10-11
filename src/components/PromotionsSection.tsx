@@ -3,15 +3,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import { Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import {
   promotionContactUrl,
   promotions,
-  type Promotion,
 } from "@/lib/promotions";
 
 /* Megaphone icon with the little "sound lines" – reused in heading and contact card */
@@ -38,7 +31,6 @@ export default function PromotionsSection() {
   const [viewportRef, carousel] = useEmblaCarousel({ loop: true, duration: 35 });
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [activeForm, setActiveForm] = useState<Promotion | null>(null);
 
   const syncSlide = useCallback(() => {
     if (carousel) setActiveIndex(carousel.selectedScrollSnap());
@@ -66,7 +58,7 @@ export default function PromotionsSection() {
   return (
     <section
       aria-labelledby="promotions-heading"
-      className="mx-auto w-full max-w-6xl px-5 pb-3 pt-2 sm:px-8"
+      className="mx-auto w-full max-w-6xl px-3 pb-3 pt-2 sm:px-8"
     >
       <h2
         id="promotions-heading"
@@ -102,16 +94,11 @@ export default function PromotionsSection() {
             {promotions.map((promotion, index) => (
               <a
                 key={promotion.id}
-                href={promotion.href ?? promotion.formUrl ?? "#"}
-                target={promotion.href ? "_blank" : undefined}
+                 href={promotion.href}
+                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={promotion.alt}
                 tabIndex={index === activeIndex ? 0 : -1}
-                onClick={(event) => {
-                  if (!promotion.formUrl) return;
-                  event.preventDefault();
-                  setActiveForm(promotion);
-                }}
                 className="block min-w-0 flex-[0_0_100%]"
               >
                 <img
@@ -130,7 +117,7 @@ export default function PromotionsSection() {
 
         <div
           aria-label="Promotion navigation"
-          className="flex h-7 items-center justify-center gap-1"
+           className="flex h-5 items-center justify-center gap-0"
         >
           {promotions.map((promotion, index) => (
             <Button
@@ -141,7 +128,7 @@ export default function PromotionsSection() {
               aria-label={`Show promotion ${index + 1}`}
               aria-pressed={index === activeIndex}
               onClick={() => carousel?.scrollTo(index)}
-              className="h-7 w-8 rounded-full p-0"
+               className="h-5 w-auto min-w-0 rounded-full px-1 py-0"
             >
               <span
                 className={`block h-1.5 rounded-full transition-[width,background-color] duration-500 ease-in-out motion-reduce:transition-none ${
@@ -154,16 +141,16 @@ export default function PromotionsSection() {
       </div>
 
       {/* Contact card – always ONE row (icon | text | button), mobile + desktop */}
-      <div className="mt-2 flex items-center gap-3 rounded-2xl border bg-card px-3 py-2.5 shadow-sm sm:gap-4 sm:px-5 sm:py-3">
-        <MegaphoneIcon />
+       <div className="mt-1 flex items-center gap-1.5 rounded-2xl border bg-card px-2 py-2 shadow-sm sm:gap-3 sm:px-4 sm:py-3">
+         <span className="hidden shrink-0 sm:block"><MegaphoneIcon /></span>
 
-        <p className="min-w-0 flex-1 text-[13px] font-semibold leading-snug text-muted-foreground sm:text-base">
+         <p className="min-w-0 flex-1 whitespace-nowrap text-[9px] font-bold leading-snug text-foreground min-[375px]:text-[10px] min-[390px]:text-[11px] sm:text-sm lg:text-base">
           Want to promote your content or application?
         </p>
 
         <Button
           asChild
-          className="h-10 shrink-0 rounded-xl px-5 text-sm font-bold shadow-sm sm:h-11 sm:px-7 sm:text-base"
+           className="shine-sweep h-8 shrink-0 rounded-xl px-2 text-[10px] font-bold shadow-sm transition-transform active:scale-95 min-[375px]:px-2.5 min-[375px]:text-xs sm:h-10 sm:px-4 sm:text-sm"
         >
           <a href={promotionContactUrl} target="_blank" rel="noopener noreferrer">
             Contact
@@ -171,30 +158,6 @@ export default function PromotionsSection() {
         </Button>
       </div>
 
-      {/* Feedback form dialog – opens the banner's form URL in an iframe */}
-      <Dialog open={activeForm !== null} onOpenChange={(open) => !open && setActiveForm(null)}>
-        <DialogContent className="flex max-h-[85dvh] w-[calc(100vw-2rem)] max-w-2xl flex-col gap-0 overflow-hidden rounded-2xl p-0 sm:w-full">
-          <DialogTitle className="sr-only">
-            {activeForm ? activeForm.alt : "Feedback form"}
-          </DialogTitle>
-          <DialogDescription className="sr-only">
-            Fill the form below and submit your response.
-          </DialogDescription>
-          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-background p-2 sm:p-3">
-            {activeForm && (
-              <iframe
-                src={activeForm.formUrl ?? ""}
-                title={activeForm.alt}
-                className="mx-auto block h-[2200px] w-full max-w-[640px] border-0"
-                loading="lazy"
-                allow="fullscreen"
-              >
-                Loading…
-              </iframe>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 }

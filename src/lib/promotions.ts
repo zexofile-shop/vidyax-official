@@ -7,21 +7,17 @@ export interface Promotion {
   image: string;
   alt: string;
   /** Where the banner click navigates (opens in a new tab). */
-  href?: string;
-  /** When set, clicking opens this form URL inside an in-page dialog instead of navigating. */
-  formUrl?: string;
+  href: string;
 }
 
 // Replace `image` with any public HTTPS JPG/PNG URL to change a banner.
-// Give a banner `href` to send clicks to a link, or `formUrl` to open an
-// embedded form (e.g. Google Form) in a dialog on click.
+// Give a banner `href` to send clicks directly to a link in a new tab.
 // Add another entry to show another banner with its own navigation dot.
 export const promotions: Promotion[] = [
   {
     id: "feedback",
     image: feedbackBanner,
-    formUrl:
-      "https://docs.google.com/forms/d/e/1FAIpQLSdlnTg3i-XS3Ho3ixbA2XFO7j_Iyrd5zwbqi7Bt1mJGjN7PGg/viewform",
+    href: "https://forms.gle/QwNUJr2xp6brhpybA",
     alt: "Help us make VidyaX better! Your feedback matters — click this poster to give feedback",
   },
   {

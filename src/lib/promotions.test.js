@@ -5,11 +5,10 @@ test("promotion contact goes directly to Nitesh's Telegram", () => {
   expect(promotionContactUrl).toBe("https://t.me/Me_nitesh");
 });
 
-test("feedback banner is #1 and opens the Google Form embedded", () => {
+test("feedback banner is #1 and redirects directly to the supplied form", () => {
   expect(promotions[0].id).toBe("feedback");
-  expect(promotions[0].formUrl).toBe(
-    "https://docs.google.com/forms/d/e/1FAIpQLSdlnTg3i-XS3Ho3ixbA2XFO7j_Iyrd5zwbqi7Bt1mJGjN7PGg/viewform?embedded=true"
-  );
+  expect(promotions[0].href).toBe("https://forms.gle/QwNUJr2xp6brhpybA");
+  expect(promotions[0]).not.toHaveProperty("formUrl");
 });
 
 test("both supplied banners use the requested Telegram destination", () => {
