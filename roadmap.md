@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Add the feedback banner as promotion #1 with its Google Form opening in an in-page popup
+
 - [x] Add smooth swipeable banner slides and synchronized dots, editable banner links, direct Telegram Contact, and a single-line enquiry
 
 - [x] Compact promotion spacing and contact options, add the second supplied banner, and enable automatic slides
