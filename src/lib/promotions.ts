@@ -21,7 +21,7 @@ export const promotions: Promotion[] = [
     id: "feedback",
     image: feedbackBanner,
     formUrl:
-      "https://docs.google.com/forms/d/e/1FAIpQLSdlnTg3i-XS3Ho3ixbA2XFO7j_Iyrd5zwbqi7Bt1mJGjN7PGg/viewform?embedded=true",
+      "https://docs.google.com/forms/d/e/1FAIpQLSdlnTg3i-XS3Ho3ixbA2XFO7j_Iyrd5zwbqi7Bt1mJGjN7PGg/viewform",
     alt: "Help us make VidyaX better! Your feedback matters — click this poster to give feedback",
   },
   {
