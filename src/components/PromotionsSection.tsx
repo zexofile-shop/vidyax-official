@@ -8,16 +8,24 @@ import {
 } from "@/lib/promotions";
 
 /* Megaphone icon with the little "sound lines" – reused in heading and contact card */
-function MegaphoneIcon({ className = "" }: { className?: string }) {
+function MegaphoneIcon({
+  className = "h-6 w-8",
+  iconClassName = "h-5 w-5",
+  waveClassName = "h-6 w-3",
+}: {
+  className?: string;
+  iconClassName?: string;
+  waveClassName?: string;
+}) {
   return (
     <span
-      className={`relative inline-flex h-6 w-8 shrink-0 items-center text-primary ${className}`}
+      className={`relative inline-flex shrink-0 items-center text-primary ${className}`}
       aria-hidden="true"
     >
-      <Megaphone className="h-5 w-5" />
+      <Megaphone className={iconClassName} />
       <svg
         viewBox="0 0 12 24"
-        className="absolute right-0 h-6 w-3 fill-none stroke-current"
+        className={`absolute right-0 fill-none stroke-current ${waveClassName}`}
         strokeWidth="1.8"
         strokeLinecap="round"
       >
