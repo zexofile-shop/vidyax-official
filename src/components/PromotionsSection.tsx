@@ -162,7 +162,7 @@ export default function PromotionsSection() {
 
         <Button
           asChild
-           className="shine-sweep h-8 shrink-0 rounded-xl px-2 text-[10px] font-bold shadow-sm transition-transform active:scale-95 min-[375px]:px-2.5 min-[375px]:text-xs sm:h-10 sm:px-4 sm:text-sm"
+           className="shine-sweep h-8 shrink-0 rounded-xl px-1.5 text-[9px] font-bold shadow-sm transition-transform active:scale-95 min-[375px]:px-2.5 min-[375px]:text-xs sm:h-10 sm:px-4 sm:text-sm"
         >
           <a href={promotionContactUrl} target="_blank" rel="noopener noreferrer">
             Contact
