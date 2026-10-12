@@ -72,7 +72,7 @@ export default function PromotionsSection() {
         id="promotions-heading"
         className="mb-3 flex items-center gap-2 text-base font-bold text-foreground sm:text-lg"
       >
-        <MegaphoneIcon className="mr-1" />
+        <MegaphoneIcon className="mr-1 h-6 w-8" />
         Promotions
       </h2>
 
@@ -150,11 +150,15 @@ export default function PromotionsSection() {
 
       {/* Contact card – always ONE row (icon | text | button), mobile + desktop */}
        <div className="mt-1 flex items-center gap-1.5 rounded-2xl border bg-card px-2 py-2 shadow-sm sm:gap-3 sm:px-4 sm:py-3">
-         <span className="hidden shrink-0 sm:block"><MegaphoneIcon /></span>
+          <MegaphoneIcon
+            className="h-4 w-6 sm:h-6 sm:w-8"
+            iconClassName="h-4 w-4 sm:h-5 sm:w-5"
+            waveClassName="h-4 w-2 sm:h-6 sm:w-3"
+          />
 
-         <p className="min-w-0 flex-1 whitespace-nowrap text-[9px] font-bold leading-snug text-foreground min-[375px]:text-[10px] min-[390px]:text-[11px] sm:text-sm lg:text-base">
-          Want to promote your content or application?
-        </p>
+          <p className="min-w-0 flex-1 whitespace-nowrap text-[length:clamp(8.5px,2.5vw,13px)] font-bold leading-snug text-foreground sm:text-sm lg:text-base">
+           Want to promote your content or application?
+         </p>
 
         <Button
           asChild
